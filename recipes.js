@@ -86,12 +86,12 @@ var displayRecipes = function(data, searchTerm) {
 
         //add thumbnail for each recipe
         var thumbnailEl = document.createElement("img");
-        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
         thumbnailEl.classList = "m-3 rounded-full";
+        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
 
         //additional div 2
         var div2 = document.createElement("div");
-        div2.classList = "self-center ml-8 basis-7/12";
+        div2.classList = "self-center ml-8 basis-7/12 list-none";
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
@@ -103,6 +103,10 @@ var displayRecipes = function(data, searchTerm) {
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
         titleEl.classList = "text-white underline uppercase text-sm text-white font-semibold";
+
+        //add nutrition information for each recipe
+        var nutritionUlEl = document.createElement("ul");
+        nutritionUlEl.classList = "text-white text-sm";
 
 
         //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
@@ -136,13 +140,13 @@ var displayRecipes = function(data, searchTerm) {
         recipeEl.appendChild(div1);
 
         //append image to container
-        recipeEl.appendChild(thumbnailEl);
+        div1.appendChild(thumbnailEl);
 
         //append div2
         recipeEl.appendChild(div2);
 
         //append links to container
-        recipeEl.appendChild(linksEl);
+        div2.appendChild(linksEl);
 
         //append title to links
         linksEl.appendChild(titleEl);
@@ -156,13 +160,13 @@ var displayRecipes = function(data, searchTerm) {
         nutritionUlEl.appendChild(proteinLiEl);
 
         //append nutrition list to container
-        recipeEl.appendChild(nutritionUlEl);
+        div2.appendChild(nutritionUlEl);
 
         //append div3
         recipeEl.appendChild(div3);
 
         //append heart to container
-        recipeEl.appendChild(heartIconEl);
+        div3.appendChild(heartIconEl);
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
@@ -177,4 +181,3 @@ var toggleHeartIcon = function(event) {
 };
 
 userFormEl.addEventListener("submit", formSubmitHandler);
-recipeContainerEl.addEventListener("click", toggleHeartIcon);

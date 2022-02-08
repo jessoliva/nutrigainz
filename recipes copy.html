@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!-- tailwind link -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
+    <!-- tailwind js link -->
+    <script src="./tailwind.config.js"></script>
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>fitify</title>
+  </head>
+
+  <!-- body background color -->
+  <body class="bg-[#142429]">
+    
+    
+    <!-- main section 1-->
+    <main class="">
+
+      <!-- 
+        <div class="card">
+            <h3 class="card-header text-uppercase">Search By User</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="ingredients">Please search for an ingredient</label>
+              <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search Recipes</button>
+            </form>
+          </div> -->
+
+
+
+
+          <!-- search bar -->
+          <div class="form-control mx-7">
+            <form id="user-form" class="card-body my-5 flex justify-center rounded-xl shadow-md overflow-hidden">
+              <label class="form-label" for="ingredients"></label>
+              <input name="ingredients" id="ingredients" type="text" autofocus="true" placeholder="Search Recipe" class="form-input basis-5/6 input input-primary input-bordered w-full"> 
+              <button type="submit" class="btn basis-1/6 btn btn-primary bg-[#365F6D] flex items-center justify-center hover:bg-blue-500">
+                <img class="h-7 w-7" src="./assets/img/search-icon.png" alt="">
+              </button>
+            </form>
+          </div> 
+        
+        <!-- display recipes -->
+        <div>
+           <h2 class="subtitle"><span id="ingredient-search-term"></span></h2>
+           <div id="recipes-container" class="list-group"></div>
+        </div>
+        <script src="./recipes.js"></script>
+
+  
+        <!-- NavBar -->
+        <section class="">
+          <div class="border-t  fixed bottom-0 left-0 right-0">
+          <nav class="bg-[#223C44] text-center text-white text-4xl">
+            <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+              <i class="fas fa-carrot"></i>
+            </button>
+    
+            <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+              <i class="fas fa-home"></i>
+            </button>
+    
+            <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+              <i class="fas fa-list"></i>
+            </button>
+    
+            <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+              <i class="fas fa-dumbbell"></i>
+            </button>
+          </nav>
+          </div>
+        </section>
+    </main>
+</body>
+</html>
