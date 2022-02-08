@@ -155,6 +155,7 @@ var displayRecipes = function(data, searchTerm) {
 
 //toggle the heart icon on click
 var toggleHeartIcon = function(event) {
+    debugger;
 
     var favoriteToggle = event.target
 
@@ -170,6 +171,10 @@ var toggleHeartIcon = function(event) {
 
 var loadFavoriteRecipes = function() {
     favoriteRecipes = JSON.parse(localStorage.getItem("favoriteRecipes"));
+
+    if(!favoriteRecipes) {
+        favoriteRecipes = [];
+    }
 }
 
 loadFavoriteRecipes();
