@@ -3,12 +3,12 @@ var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
 
 
-// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
-// var appId = "&app_id=7ac48de2"
-
-//Victoria's API keys
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
+
+//Victoria's API keys
+// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
+// var appId = "&app_id=7ac48de2"
 
 
 var getRecipes = function(ingredients) {
@@ -75,8 +75,23 @@ var displayRecipes = function(data, searchTerm) {
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
 
+
+        //main container div 
         var recipeEl = document.createElement("div");
-        recipeEl.classList = "individual-recipes";
+        recipeEl.classList = "mx-5 my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+
+        //additional div 1
+        var div1 = document.createElement("div");
+        div1.classList = "basis-3/12 flex-col self-center";
+
+        //add thumbnail for each recipe
+        var thumbnailEl = document.createElement("img");
+        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
+        thumbnailEl.classList = "m-3 rounded-full";
+
+        //additional div 2
+        var div2 = document.createElement("div");
+        div2.classList = "self-center ml-8 basis-7/12";
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
@@ -84,12 +99,11 @@ var displayRecipes = function(data, searchTerm) {
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
-        //add heart icon to each container
-        var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "far fa-heart"
+        //create a span element to hold recipe name
+        var titleEl = document.createElement("span");
+        titleEl.textContent = recipeName;
+        titleEl.classList = "text-white underline uppercase text-sm text-white font-semibold";
 
-        //add nutrition information for each recipe
-        var nutritionUlEl = document.createElement("ul");
 
         //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
         var servingsLiEl = document.createElement("li");
@@ -107,25 +121,33 @@ var displayRecipes = function(data, searchTerm) {
         var fatsLiEl = document.createElement("li");
         fatsLiEl.textContent = "Fat: " + Math.round(fatsValue) + " " + fatsUnit;
 
+        //additional div 3
+        var div3 = document.createElement("div");
+        div3.classList = "self-center justify-end basis-2/12";
 
-        //add thumbnail for each recipe
-        var thumbnailEl = document.createElement("img");
-        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
+        //add heart icon to each container
+        var heartIconEl = document.createElement("i");
+        heartIconEl.classList = "h-15 w-15 far fa-heart";
+        heartIconEl.id = "heart-icon"
 
 
-        //create a span element to hold recipe name
-        var titleEl = document.createElement("span");
-        titleEl.textContent = recipeName;
 
-        //append title to links
-        linksEl.appendChild(titleEl);
+        //append recipEl
+        recipeEl.appendChild(div1);
+
+        //append image to container
+        recipeEl.appendChild(thumbnailEl);
+
+        //append div2
+        recipeEl.appendChild(div2);
 
         //append links to container
         recipeEl.appendChild(linksEl);
 
-        //append heart to container
-        recipeEl.appendChild(heartIconEl);
+        //append title to links
+        linksEl.appendChild(titleEl);
 
+    
         //append nutrion information to list
         nutritionUlEl.appendChild(servingsLiEl);
         nutritionUlEl.appendChild(caloriesLiEl);
@@ -136,12 +158,23 @@ var displayRecipes = function(data, searchTerm) {
         //append nutrition list to container
         recipeEl.appendChild(nutritionUlEl);
 
-        //append image to container
-        recipeEl.appendChild(thumbnailEl);
+        //append div3
+        recipeEl.appendChild(div3);
+
+        //append heart to container
+        recipeEl.appendChild(heartIconEl);
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
+
     }
 };
 
+//toggle the heart icon on click
+var toggleHeartIcon = function(event) {
+    document.getElementById("heart-icon").classList.toggle("far");
+    document.getElementById("heart-icon").classList.toggle("fas");
+};
+
 userFormEl.addEventListener("submit", formSubmitHandler);
+recipeContainerEl.addEventListener("click", toggleHeartIcon);
