@@ -2,6 +2,8 @@ var userFormEl = document.querySelector("#user-form")
 var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
 
+var favoriteRecipes = []
+
 
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
@@ -77,12 +79,16 @@ var displayRecipes = function(data, searchTerm) {
 
         var recipeEl = document.createElement("div");
         recipeEl.classList = "individual-recipes";
+        recipeEl.id = data.hits[i]._links.self.href
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
         //linksEl.classList = "list-item flex-row justify-space-between align-center";
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
+
+        //add div around heart heart
+        //var heartDivEl = document.createElement("div");
 
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
@@ -149,9 +155,28 @@ var displayRecipes = function(data, searchTerm) {
 
 //toggle the heart icon on click
 var toggleHeartIcon = function(event) {
-    document.getElementById("heart-icon").classList.toggle("far");
-    document.getElementById("heart-icon").classList.toggle("fas");
+    
+    var favoriteToggle = event.target
+
+    event.target.classList.toggle("far");
+    event.target.classList.toggle("fas");
+        if (event.target.classList.contains("fas")) {
+            favoriteRecipes.push(event.target.closest("div").id)
+        }
+    
+    localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
+    
 };
+
+var loadFavoriteRecipes = function() {
+    savedRecipes = JSON.parse(localStorage.getItem("favoriteRecipes"));
+
+    if(!savedRecipes) {
+        localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
+    }
+}
+
+loadFavoriteRecipes();
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 recipeContainerEl.addEventListener("click", toggleHeartIcon);
