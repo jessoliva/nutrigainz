@@ -3,12 +3,12 @@ var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
 
 
-// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
-// var appId = "&app_id=7ac48de2"
-
-//Victoria's API keys
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
+
+//Victoria's API keys
+// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
+// var appId = "&app_id=7ac48de2"
 
 
 var getRecipes = function(ingredients) {
@@ -80,13 +80,15 @@ var displayRecipes = function(data, searchTerm) {
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
-        linksEl.classList = "list-item flex-row justify-space-between align-center";
+        //linksEl.classList = "list-item flex-row justify-space-between align-center";
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "far fa-heart"
+        heartIconEl.classList = "far fa-heart";
+        heartIconEl.id = "heart-icon"
+        
 
         //add nutrition information for each recipe
         var nutritionUlEl = document.createElement("ul");
@@ -141,7 +143,15 @@ var displayRecipes = function(data, searchTerm) {
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
+
     }
 };
 
+//toggle the heart icon on click
+var toggleHeartIcon = function(event) {
+    document.getElementById("heart-icon").classList.toggle("far");
+    document.getElementById("heart-icon").classList.toggle("fas");
+};
+
 userFormEl.addEventListener("submit", formSubmitHandler);
+recipeContainerEl.addEventListener("click", toggleHeartIcon);
