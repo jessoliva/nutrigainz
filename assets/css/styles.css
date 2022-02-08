@@ -1,8 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
     --primary: #142429;
     --secondary: #1B3137;
+}
+
+
+// Card Styling Start
+.recipe-card {
+    @apply mx-5 mt-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden;
+}
+
+.img-container {
+    @apply basis-2/6 flex-col self-center justify-end;
+}
+
+.img {
+    @apply rounded-full;
+}
+
+.info-container {
+    @apply ml-2 m-2 basis-3/6;
+}
+
+.card-titile {
+    @apply uppercase text-sm text-white font-semibold;
+}
+
+.card-subtitle {
+   @apply leading-tight text-xs font-medium text-white underline;
+}
+
+.recipe-info {
+    @apply text-xs text-white;
+}
+
+.save-imgContainer {
+    @apply self-center justify-end basis-1/6;
+}
+
+.save-img {
+    @apply h-10 w-10;
+}
+// Card Styling
+
+
+// Search Bar Styling 
+.search-barContainer {
+    @apply form-control mx-7;
+}
+
+.inputButton-container {
+    @apply my-5 flex justify-center rounded-xl shadow-md overflow-hidden;
+}
+
+.input-section {
+    @apply basis-5/6 input input-primary input-bordered w-full;
+}
+
+.btn-container {
+    @apply basis-1/6 btn btn-primary bg-[#365F6D] flex items-center justify-center hover:bg-blue-500;
+}
+
+.btn-img {
+    @apply h-7 w-7;
 }
