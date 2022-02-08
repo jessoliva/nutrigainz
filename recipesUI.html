@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <!-- tailwind link -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
+    <!-- tailwind js link -->
+    <script src="./tailwind.config.js"></script>
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>fitify</title>
+  </head>
+
+  <!-- body background color -->
+  <body class="bg-[#142429]">
+    
+    
+    <!-- main section 1 -->
+    <main class="min-h-screen flex flex-col">
+
+  <!-- CardTest 1 -->
+    <div class="card">
+      <div class="mx-5 mt-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden">
+        <div class="basis-2/6 flex-col self-center justify-end">
+          <img class="rounded-full" src="./assets/img/stew.jpg" alt="">
+        </div>
+        <div class="ml-2 m-2 basis-3/6">
+          <div class="uppercase text-sm text-white font-semibold">Recipe</div>
+          <p class="leading-tight text-xs font-medium text-white underline">Nutirtional Information:</p>
+          <ul class="text-xs text-white">
+            <div>
+                <h2 class="subtitle"><span id="ingredient-search-term"></span></h2>
+                <div id="recipes-container" class="list-group"></div>
+                <script src="./assets/js/recipes.js"></script>
+             </div>
+          </ul>
+        </div>
+
+        <div class="self-center justify-end basis-1/6 ">
+          <img class="h-10 w-10" src="./assets/img/Heart-removebg-preview.png" alt="">
+        </div>
+      </div>
+    </div> 
+
+  <!-- SearchBar -->
+  <div class="card form-control mx-7">
+    <div class="card-header text-uppercase my-5 flex justify-center rounded-xl shadow-md overflow-hidden">
+        <form id="user-form" class="card-body">
+            <label class="form-label" for="ingredients"></label>
+
+            <input name="ingredients" id="ingredients" type="text" autofocus="true" placeholder="Search" class="form-input basis-5/6 input input-primary input-bordered w-full"> 
+
+            <button type="submit" class="btn basis-1/6 btn btn-primary bg-[#365F6D] flex items-center justify-center hover:bg-blue-500">
+            <img type="submit" class="btn h-7 w-7" src="./assets/img/search-icon.png" alt="">
+            </button> 
+        </form>
+    </div>
+   </div>
+    
+       <!-- <div class="card">
+            <h3 class="card-header text-uppercase">Search By User</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="ingredients">Please search for an ingredient</label>
+              <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search Recipes</button>
+            </form>
+        </div> 
+
+        <div>
+            <h2 class="subtitle">Showing recipes for: <span id="ingredient-search-term"></span></h2>
+            <div id="recipes-container" class="list-group"></div>
+         </div>
+         <script src="./assets/js/recipes.js"></script>
+      </div>
+    </div> -->
+
+      <!-- Navigation Section -->
+      <section class="">
+      <div class="fixed bottom-0 left-0 right-0">
+      <nav class="bg-[#223C44] text-center text-white text-4xl">
+        <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+          <i class="fas fa-carrot"></i>
+        </button>
+
+        <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+          <i class="fas fa-home"></i>
+        </button>
+
+        <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+          <i class="fas fa-list"></i>
+        </button>
+
+        <button class="hover:bg-blue-500 w-16 h-16 rounded-full">
+          <i class="fas fa-dumbbell"></i>
+        </button>
+      </nav>
+      </div>
+    </section>
+
+    </main>
+
+  </body>
+</html>
