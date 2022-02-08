@@ -4,29 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- tailwind link -->
     <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
     <!-- tailwind js link -->
     <script src="./tailwind.config.js"></script>
     <!-- font awesome link --> 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <!-- google fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
     <!-- css link -->
-    <link rel="stylesheet" href="./assets/tailwind/output.css" />
-    <title>fitgainz</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>nutrigainz</title>
   </head>
 
-  <body class="h-screen bg-gradient-to-r from-[#142429] to-[#223C44] text-white">
+  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white ">
     
-  <!-- jQuery link -->
- <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-  <!-- js link -->
-  <script src="./assets/js/script.js"></script>
+    <main class="min-h-screen flex flex-col">
+
+      <!-- Main Section -->
+      <section id="workout-tab" class="flex flex-grow justify-center mx-12 my-10 h-24 bg-secondary rounded-[20px]">
+      </section>      
+
+      
+      <!-- Navigation Section -->
+      <nav class="flex justify-around bg-secondary text-center text-4xl">
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-carrot"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-home"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-list"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-dumbbell"></i>
+        </button>
+      </nav>
+    </main>
+
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- js link -->
+    <!-- <script src="./assets/js/workout.js"></script> -->
   </body>
 </html>

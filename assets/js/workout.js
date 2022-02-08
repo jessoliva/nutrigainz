@@ -64,32 +64,31 @@ function muscleGroupCards() {
 
   //loop through array to generate muscle group cards
   for (i = 0; i < muscleGroup.length; i++) {
+    // create muscle group card for each muscle group
     var muscleGroupCard = document.createElement("div");
     muscleGroupCard.id = "muscle-group-card";
-    muscleGroupCard.classList = "muscle-group-card";
+    muscleGroupCard.classList = "w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]";
     muscleGroupCard.id = muscleGroup[i] + "-group";
 
-    var muscleGroupCardName = document.createElement("h2");
-    muscleGroupCardName.classList = "card-title";
-    muscleGroupCardName.textContent = muscleGroup[i];
-
-    var muscleGroupImageContainer = document.createElement("div");
+    // create image element
+    var muscleGroupImageContainer = document.createElement("img");
     muscleGroupImageContainer.id = muscleGroup[i] + "-image";
-    muscleGroupImageContainer.setAttribute(
-      "style",
-      "background-image: url(./assets/images/" +
-        muscleGroup[i] +
-        ".svg); background-repeat: no-repeat; width: 150px; height: 100px; background-size: 110px"
-    );
+    muscleGroupImageContainer.src = './assets/images/' + muscleGroup[i] + '.svg';
+    muscleGroupImageContainer.setAttribute('width', '18%');
+    muscleGroupImageContainer.setAttribute('style', 'transform: scale(-1,1)');
+    muscleGroupImageContainer.classList = 'muscle-img';
 
-    var moreInfoBtn = document.createElement("div");
+    // create h2 element
+    var muscleGroupCardName = document.createElement("h2");
+    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl";
+    muscleGroupCardName.textContent = muscleGroup[i] + ' Day';
+
+    // create info element
+    var moreInfoBtn = document.createElement("i");
     moreInfoBtn.id = muscleGroup[i] + "-info";
-    moreInfoBtn.setAttribute(
-      "style",
-      "background-image: url(./assets/images/info-icon.svg);width: 20px; height: 20px; background-size: 20px"
-    );
+    moreInfoBtn.classList = 'fas fa-info-circle';
 
-    muscleGroupCard.append(muscleGroupCardName, muscleGroupImageContainer, moreInfoBtn);
+    muscleGroupCard.append(muscleGroupImageContainer, muscleGroupCardName, moreInfoBtn);
     muscleGroupWrapperEl.appendChild(muscleGroupCard);
     archiveWrapperEl.appendChild(muscleGroupWrapperEl);
   };
@@ -105,29 +104,37 @@ var loadIndMuscles = function () {
 
   var muscleList = document.createElement("div");
   muscleList.id = "muscles";
+  muscleList.classList = "scroll";
 
-  var muscleListTitle = document.createElement("h2");
-  muscleListTitle.textContent = "Select a Muscle for Exercise List"
-  muscleList.appendChild(muscleListTitle);
+  // var muscleListTitle = document.createElement("h2");
+  // muscleListTitle.textContent = "Select a Muscle for Exercise List"
+  // muscleList.appendChild(muscleListTitle);
 
+  // create return button
   var returnBtn = document.createElement("button");
   returnBtn.setAttribute("type", "button");
   returnBtn.setAttribute("name", "returnbtn");
   returnBtn.id = "returnbtn-ind-muscles";
+  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
   returnBtn.textContent = "Back";
   individualMusclesWrapperEl.appendChild(returnBtn);
 
+
   //loop through array to generate individual muscle cards
   for (var i = 0; i < muscleGroupArray.length; i++) {
+    // muscle card container that hold image and heading
     var indMuscleCard = document.createElement("div");
     indMuscleCard.id = muscleGroupArray[i].name;
-    indMuscleCard.classList = "ind-muscle-card";
+    indMuscleCard.classList = "ind-muscle-card p-3 m-3 flex flex-wrap justify-center  bg-primary rounded-[26px]";
     //assigns muscle id to be the same as the muscle id in the api
     indMuscleCard.setAttribute("data-muscleID", muscleGroupArray[i].id);
 
+    // heading of container
     var muscleName = document.createElement("h2");
+    muscleName.classList = 'p-2 px-8 mb-3 bg-secondary rounded-[26px] text-lg text-center';
     muscleName.textContent = muscleGroupArray[i].name;
 
+    // image of container
     //checks if the background body should be front or back view
     if (muscleGroupArray[i].is_front === true) {
       var bodyImage =
@@ -136,10 +143,10 @@ var loadIndMuscles = function () {
       var bodyImage =
         "https://wger.de/static/images/muscles/muscular_system_back.svg";
     }
-
+    //
     //sets image url as a variable
     var imageLocation = muscleGroupArray[i].image_url_secondary;
-
+    // makes container that holds image
     var imageContainer = document.createElement("div");
     imageContainer.id = muscleGroupArray[i].id;
     imageContainer.classList = "muscle-image";
@@ -187,26 +194,48 @@ var displayExerciseList = function (data) {
   exerciseListWrapperEl.innerHTML = "";
   individualMusclesWrapperEl.innerHTML = "";
 
-  var muscleWorkoutTitle = document.createElement("h3");
-  muscleWorkoutTitle.textContent = "Select a Workout for Details";
-  exerciseListWrapperEl.appendChild(muscleWorkoutTitle);
+  // var muscleWorkoutTitle = document.createElement("h3");
+  // muscleWorkoutTitle.textContent = "Select a Workout for Details";
+  // exerciseListWrapperEl.appendChild(muscleWorkoutTitle);
 
+  // generate back button
+  var returnBtn = document.createElement("button");
+  returnBtn.setAttribute("type", "button");
+  returnBtn.setAttribute("name", "returnbtn");
+  returnBtn.id = "returnbtn-exercise";
+  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
+  returnBtn.textContent = "Back";
+  exerciseListWrapperEl.appendChild(returnBtn);
+
+  // loop through array to generate individual exercise cards
   for (var i = 0; i < data.results.length; i++) {
+    // container holding individual exercise
     var indExerciseWrapper = document.createElement("div");
     indExerciseWrapper.id = data.results[i].id;
-    indExerciseWrapper.classList = "individual-exercise";
+    indExerciseWrapper.classList = "individual-exercise w-11/12";
 
+    // title for individual exercise
     var exerciseTitle = document.createElement("button");
     exerciseTitle.id = "exercise-title";
-    exerciseTitle.classList = "collapsible";
+    exerciseTitle.classList = "collapsible btn-hover2 my-2 bg-primary rounded-[26px] text-semibold";
     exerciseTitle.textContent = data.results[i].name;
-
-    var exerciseDescription = document.createElement("div");
-    exerciseDescription.innerHTML = data.results[i].description;
-    exerciseDescription.classList = "content";
-
+    // append to individual exercise container
     indExerciseWrapper.appendChild(exerciseTitle);
+
+    // container holding info for exercise
+    var exerciseDescription = document.createElement("div");    
+    exerciseDescription.classList = "content bg-primary rounded-[26px]";
+    // create p for each description
+    var exerciseP = document.createElement('p');
+    exerciseP.classList = 'p-2';
+    exerciseP.innerHTML = data.results[i].description;
+    // append description paragraph to div
+    exerciseDescription.appendChild(exerciseP);
+    // 
+    // append description container to individual exercise container
     indExerciseWrapper.appendChild(exerciseDescription);
+
+    // append to container holding all exercises
     exerciseListWrapperEl.appendChild(indExerciseWrapper);
   };
 
@@ -233,13 +262,6 @@ var displayExerciseList = function (data) {
       }
     });
   };
-
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-exercise";
-  returnBtn.textContent = "Back";
-  exerciseListWrapperEl.appendChild(returnBtn);
 };
 
 //send user input from dropdown to fetch muscle group
