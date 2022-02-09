@@ -21,11 +21,21 @@
     />
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- js link -->
+    <script src="./recipes.js" defer></script>
+    <!--Icon link-->
+    <link rel = "icon" href = "./assets/images/favicon.ico" type = "x-icon">
 
     <title>nutrigainz</title>
   </head>
 
   <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
+
+    <!-- Logo -->
+    <section class="flex items-center justify-center mt-6 mb-2 ">
+      <img src="./assets/images/nutrigainz.svg" alt="Nutrigainz logo" width="325" height="100"> 
+    </section>
+
     <main class="min-h-screen flex flex-col">
       <!-- Recipes Page Main Section -->
       <section
@@ -33,7 +43,7 @@
       >
         <!-- display recipes -->
         <div>
-          <h2 class="subtitle">
+          <h2 class="subtitle text-center underline font-medium">
             Showing recipes for: <span id="ingredient-search-term"></span>
           </h2>
           <div id="recipes-container" class="list-group"></div>
@@ -90,7 +100,5 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <!-- js link -->
-    <script src="./assets/js/recipes.js"></script>
   </body>
 </html>
