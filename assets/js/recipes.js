@@ -104,7 +104,7 @@ var displayRecipes = function(data, searchTerm) {
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
-        titleEl.classList = "text-white underline uppercase text-sm text-white font-semibold";
+        titleEl.classList = "text-white underline uppercase text-xs text-white font-semibold";
 
         //add nutrition information for each recipe
         var nutritionUlEl = document.createElement("ul");
