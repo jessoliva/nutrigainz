@@ -211,14 +211,14 @@ var displayExerciseList = function (data) {
     // title for individual exercise
     var exerciseTitle = document.createElement("button");
     exerciseTitle.id = "exercise-title";
-    exerciseTitle.classList = "collapsible btn-hover2 my-2 bg-primary rounded-[26px] text-semibold";
+    exerciseTitle.classList = "collapsible btn-hover2 my-2 bg-primary rounded-[26px] font-semibold";
     exerciseTitle.textContent = data.results[i].name;
     // append to individual exercise container
     indExerciseWrapper.appendChild(exerciseTitle);
 
-    // container holding info for exercise
+    // container for exercise description
     var exerciseDescription = document.createElement("div");    
-    exerciseDescription.classList = "content bg-tertiary rounded-[26px] text-semibold";
+    exerciseDescription.classList = "content bg-tertiary rounded-[26px] font-semibold";
     //
     // create p for each description
     var exerciseP = document.createElement('p');
@@ -364,21 +364,36 @@ var displayRandomWorkout = function (data) {
   //cut finalRandomArray to only first 6 exercises 
   finalRandomArray = finalRandomArray.splice(0, 6);
 
+  var returnBtn = document.createElement("button");
+  returnBtn.setAttribute("type", "button");
+  returnBtn.setAttribute("name", "returnbtn");
+  returnBtn.id = "returnbtn-random";
+  returnBtn.classList = 'btn-hover2 mb-3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
+  returnBtn.textContent = "Back";
+  generateWorkoutWrapperEl.appendChild(returnBtn);
+
   //loop through randomized array to generate exercise list
   for (var i = 0; i < finalRandomArray.length; i++) {
     var exerciseCard = document.createElement("div");
     exerciseCard.id = "exercise-card";
     //sets exerciseID to be the same as in the api
     exerciseCard.setAttribute("data-exerciseID", finalRandomArray[i].id);
+    exerciseCard.classList = 'w-full p-1';
 
     var exerciseName = document.createElement("h2");
     exerciseName.id = "exercise-name";
     exerciseName.innerHTML = finalRandomArray[i].name;
-    exerciseName.classList = "collapsible";
+    exerciseName.classList = "collapsible btn-hover2 bg-primary rounded-[26px] font-semibold";
 
+    // container for exercise description
     var exerciseDescription = document.createElement("div");
-    exerciseDescription.innerHTML = finalRandomArray[i].description;
-    exerciseDescription.classList = "content";
+    exerciseDescription.classList = "content bg-tertiary rounded-[26px]";
+    //
+    // create p for each description
+    var exerciseP = document.createElement('p');
+    exerciseP.classList = 'p-2 text-primary text-semibold';
+    exerciseP.innerHTML = finalRandomArray[i].description;
+    exerciseDescription.appendChild(exerciseP);
 
     exerciseCard.appendChild(exerciseName);
     exerciseCard.appendChild(exerciseDescription);
@@ -408,24 +423,22 @@ var displayRandomWorkout = function (data) {
     });
   };
 
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-random";
-  returnBtn.textContent = "Back";
-  generateWorkoutWrapperEl.appendChild(returnBtn);
-
+  // save workout button and send to saved page
   var favoriteBtn = document.createElement("button");
   favoriteBtn.setAttribute("type", "button");
   favoriteBtn.setAttribute("name", "favoriteBtn");
   favoriteBtn.id = "favoriteBtn-random";
-  favoriteBtn.textContent = "Save Workout";
+  favoriteBtn.classList = 'btn-hover2 mt-3 mr-2 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold';
+  favoriteBtn.innerHTML = 'Save <i class="fa-solid fa-heart text-rose-300"></i>'
+  // favoriteBtn.textContent = "Save Workout";
   generateWorkoutWrapperEl.appendChild(favoriteBtn);
 
+  // try workout button and send to home page
   var makeCurrentWorkoutBtn = document.createElement("button");
   makeCurrentWorkoutBtn.setAttribute("type", "button");
   makeCurrentWorkoutBtn.setAttribute("name", "makeCurrentWorkoutBtn");
   makeCurrentWorkoutBtn.id = "makeCurrentWorkoutBtn-random";
+  makeCurrentWorkoutBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
   makeCurrentWorkoutBtn.textContent = "Try It!";
   generateWorkoutWrapperEl.appendChild(makeCurrentWorkoutBtn);
 };
@@ -599,6 +612,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
     event.target.matches("#returnbtn-random")
   ) {
     muscleGroupCards(muscleGroupCardArray);
+    // generateWorkoutWrapperEl.classList('hidden');
   }
 });
 
