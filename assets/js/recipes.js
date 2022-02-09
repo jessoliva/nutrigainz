@@ -76,31 +76,10 @@ var displayRecipes = function(data, searchTerm) {
         var proteinValue = data.hits[i].recipe.totalNutrients.PROCNT.quantity;
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
-<<<<<<< HEAD
-
-=======
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //main container div 
         var recipeEl = document.createElement("div");
-<<<<<<< HEAD
-        recipeEl.classList = "mx-5 my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
-
-        //additional div 1
-        var div1 = document.createElement("div");
-        div1.classList = "basis-3/12 flex-col self-center";
-
-        //add thumbnail for each recipe
-        var thumbnailEl = document.createElement("img");
-        thumbnailEl.classList = "m-3 rounded-full";
-        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
-
-        //additional div 2
-        var div2 = document.createElement("div");
-        div2.classList = "self-center ml-8 basis-7/12 list-none";
-=======
         recipeEl.classList = "individual-recipes";
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
@@ -108,8 +87,6 @@ var displayRecipes = function(data, searchTerm) {
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
-<<<<<<< HEAD
-=======
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
         heartIconEl.classList = "far fa-heart"
@@ -139,7 +116,6 @@ var displayRecipes = function(data, searchTerm) {
         thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
 
 
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
@@ -201,16 +177,6 @@ var displayRecipes = function(data, searchTerm) {
         nutritionUlEl.appendChild(fatsLiEl);
         nutritionUlEl.appendChild(proteinLiEl);
 
-<<<<<<< HEAD
-        //append nutrition list to container
-        div2.appendChild(nutritionUlEl);
-
-        //append div3
-        recipeEl.appendChild(div3);
-
-        //append heart to container
-        div3.appendChild(heartIconEl);
-=======
         //append heart to container
         recipeEl.appendChild(heartIconEl);
 
@@ -226,7 +192,6 @@ var displayRecipes = function(data, searchTerm) {
 
         //append image to container
         recipeEl.appendChild(thumbnailEl);
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
