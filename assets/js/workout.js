@@ -66,7 +66,6 @@ function muscleGroupCards() {
   for (i = 0; i < muscleGroup.length; i++) {
     // create muscle group card for each muscle group
     var muscleGroupCard = document.createElement("div");
-    muscleGroupCard.id = "muscle-group-card";
     muscleGroupCard.classList = "w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]";
     muscleGroupCard.id = muscleGroup[i] + "-group";
 
@@ -76,17 +75,17 @@ function muscleGroupCards() {
     muscleGroupImageContainer.src = './assets/images/' + muscleGroup[i] + '.svg';
     muscleGroupImageContainer.setAttribute('width', '18%');
     muscleGroupImageContainer.setAttribute('style', 'transform: scale(-1,1)');
-    muscleGroupImageContainer.classList = 'muscle-img';
+    muscleGroupImageContainer.classList = 'muscle-img no-pointer';
 
     // create h2 element
     var muscleGroupCardName = document.createElement("h2");
-    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl";
+    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl no-pointer";
     muscleGroupCardName.textContent = muscleGroup[i] + ' Day';
 
     // create info element
     var moreInfoBtn = document.createElement("i");
     moreInfoBtn.id = muscleGroup[i] + "-info";
-    moreInfoBtn.classList = 'fas fa-info-circle';
+    moreInfoBtn.classList = 'fas fa-info-circle no-pointer';
 
     muscleGroupCard.append(muscleGroupImageContainer, muscleGroupCardName, moreInfoBtn);
     muscleGroupWrapperEl.appendChild(muscleGroupCard);
@@ -225,6 +224,7 @@ var displayExerciseList = function (data) {
     // container holding info for exercise
     var exerciseDescription = document.createElement("div");    
     exerciseDescription.classList = "content bg-primary rounded-[26px]";
+    //
     // create p for each description
     var exerciseP = document.createElement('p');
     exerciseP.classList = 'p-2';
@@ -244,6 +244,7 @@ var displayExerciseList = function (data) {
 
   for (var i = 0; i < collapseList.length; i++) {
     collapseList[i].addEventListener("click", function () {
+      console.log(this);
       this.classList.toggle("active");
       var content = this.nextElementSibling;
 
@@ -512,96 +513,96 @@ async function fetchCore() {
 //EVENT LISTENERS
 //TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
 // generateWorkoutBtn.addEventListener("click", randomizeWorkout);
+
 //DYNAMIC EVENT LISTENERS
 //listener for back button on randomized workout and individual muscles
-document
-  .querySelector("#archive-wrapper")
-  .addEventListener("click", function (event) {
-    if (
-      event.target.matches("#returnbtn-ind-muscles") ||
-      event.target.matches("#returnbtn-random")
-    ) {
-      muscleGroupCards(muscleGroupCardArray);
-    }
-  });
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (
+    event.target.matches("#returnbtn-ind-muscles") ||
+    event.target.matches("#returnbtn-random")
+  ) {
+    muscleGroupCards(muscleGroupCardArray);
+  }
+});
+
 //listener for back button on individual muscle exercise list
-document
-  .querySelector("#archive-wrapper")
-  .addEventListener("click", function (event) {
-    if (event.target.matches("#returnbtn-exercise")) {
-      loadIndMuscles();
-    }
-  });
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (event.target.matches("#returnbtn-exercise")) {
+    loadIndMuscles();
+  }
+});
+
 //listener for individual muscle images to load exercises for individual muscles
-document
-  .querySelector("#archive-wrapper")
-  .addEventListener("click", function (event) {
-    if (event.target.matches(".muscle-image")) {
-      var muscleID = event.target.id;
-      loadExerciseList(muscleID);
-    }
-  });
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (event.target.matches(".muscle-image")) {
+    var muscleID = event.target.id;
+    loadExerciseList(muscleID);
+  }
+});
+
 //listener for muscle group info buttons to load individual muscles
-document
-  .querySelector("#archive-wrapper")
-  .addEventListener("click", function (event) {
-    if (event.target.id === "Arms-info") {
-      for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
-        var muscle = muscleGroupCardArray[0].results[i];
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (event.target.id === "Arms-group") {
+    for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
+      var muscle = muscleGroupCardArray[0].results[i];
 
-        if (
-          muscle.id == 2 ||
-          muscle.id == 1 ||
-          muscle.id == 13 ||
-          muscle.id == 5
-        ) {
-          muscleGroupArray.push(muscle);
-        }
-        loadIndMuscles(muscleGroupArray);
+      if (
+        muscle.id == 2 ||
+        muscle.id == 1 ||
+        muscle.id == 13 ||
+        muscle.id == 5
+      ) {
+        muscleGroupArray.push(muscle);
       }
-    } else if (event.target.id === "Legs-info") {
-      for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
-        var muscle = muscleGroupCardArray[0].results[i];
-
-        if (
-          muscle.id == 11 ||
-          muscle.id == 7 ||
-          muscle.id == 8 ||
-          muscle.id == 10 ||
-          muscle.id == 15
-        ) {
-          muscleGroupArray.push(muscle);
-        }
-        loadIndMuscles(muscleGroupArray);
-      }
-    } else if (event.target.id === "Chest-info") {
-      for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
-        var muscle = muscleGroupCardArray[0].results[i];
-
-        if (muscle.id == 4) {
-          muscleGroupArray.push(muscle);
-        }
-        loadIndMuscles(muscleGroupArray);
-      }
-    } else if (event.target.id === "Back-info") {
-      for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
-        var muscle = muscleGroupCardArray[0].results[i];
-
-        if (muscle.id == 12 || muscle.id == 9) {
-          muscleGroupArray.push(muscle);
-        }
-        loadIndMuscles(muscleGroupArray);
-      }
-    } else if (event.target.id === "Core-info") {
-      for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
-        var muscle = muscleGroupCardArray[0].results[i];
-
-        if (muscle.id == 14 || muscle.id == 6 || muscle.id == 3) {
-          muscleGroupArray.push(muscle);
-        }
-        loadIndMuscles(muscleGroupArray);
-      }
+      loadIndMuscles(muscleGroupArray);
     }
-  });
+  } 
+  else if (event.target.id === "Legs-group") {
+    for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
+      var muscle = muscleGroupCardArray[0].results[i];
+
+      if (
+        muscle.id == 11 ||
+        muscle.id == 7 ||
+        muscle.id == 8 ||
+        muscle.id == 10 ||
+        muscle.id == 15
+      ) {
+        muscleGroupArray.push(muscle);
+      }
+      loadIndMuscles(muscleGroupArray);
+    }
+  } 
+  else if (event.target.id === "Chest-group") {
+    for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
+      var muscle = muscleGroupCardArray[0].results[i];
+
+      if (muscle.id == 4) {
+        muscleGroupArray.push(muscle);
+      }
+      loadIndMuscles(muscleGroupArray);
+    }
+  } 
+  else if (event.target.id === "Back-group") {
+    for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
+      var muscle = muscleGroupCardArray[0].results[i];
+
+      if (muscle.id == 12 || muscle.id == 9) {
+        muscleGroupArray.push(muscle);
+      }
+      loadIndMuscles(muscleGroupArray);
+    }
+  } 
+  else if (event.target.id === "Core-group") {
+    for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
+      var muscle = muscleGroupCardArray[0].results[i];
+
+      if (muscle.id == 14 || muscle.id == 6 || muscle.id == 3) {
+        muscleGroupArray.push(muscle);
+      }
+      loadIndMuscles(muscleGroupArray);
+    }
+  }
+});
 
 loadArchive();

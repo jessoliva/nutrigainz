@@ -9,28 +9,46 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
     <!-- tailwind js link -->
     <script src="./tailwind.config.js"></script>
-    <!-- font awesome link --> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
-    <!-- icons8 link -->
-    <!-- <a href="https://icons8.com/icon/3rL3h7OTSyT1/arm-massage-area">Arm Massage Area icon by Icons8</a> -->
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
     <!-- google fonts link -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap"
+      rel="stylesheet"
+    />
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- logo link-->
+    <link rel="icon" href="./assets/images/favicon.ico" type="x-icon" />
 
     <title>nutrigainz</title>
   </head>
 
   <body class="bg-gradient-to-r from-primary to-[#1B3137] text-white">
-    
     <main class="min-h-screen flex flex-col">
+      <!-- Logo -->
+      <section class="flex items-center justify-center mt-6 mb-2">
+        <img
+          src="./assets/images/nutrigainz.svg"
+          alt="Nutrigainz logo"
+          height="70"
+        />
+      </section>
 
       <!-- Workout Page Main Section -->
       <!-- body days section -->
-      <section id="archive-wrapper" class="scroll mx-12 my-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]">
-
+      <section
+        id="archive-wrapper"
+        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]"
+      >
         <!-- body days section -->
-        <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
+        <section
+          id="muscle-group-wrapper"
+          class="w-full flex flex-wrap flex-grow space-y-11 justify-center"
+        >
           <!-- <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
             <img src="./assets/images/arms.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
             <h2 class="px-3 font-semibold text-xl">Arm Day</h2>
@@ -63,7 +81,10 @@
         </section>
 
         <!-- individual muscles for body days section -->
-        <section id="individual-muscle-wrapper" class="scroll flex flex-wrap justify-center">
+        <section
+          id="individual-muscle-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
           <!-- <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
 
           <div id="muscles">
@@ -76,8 +97,10 @@
         </section>
 
         <!-- exercises for individual muscles section -->
-        <section id="exercise-wrapper" class="scroll flex flex-wrap justify-center">
-
+        <section
+          id="exercise-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
           <!-- <div id="307" class="individual-exercise w-11/12">
             <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Bear Walk</button>
             <div class="content">
@@ -93,18 +116,11 @@
             <div class="content"></div>
           </div>
          -->
-          
         </section>
       </section>
 
-
-
-
-
-
       <!-- generate workout section -->
       <section class="mx-12 mb-10 rounded-[26px] text-sm text-center">
-
         <!-- drop down -->
         <div class="mb-4">
           <select id="day-select" class="w-5/6 rounded-[26px] text-[#142429]">
@@ -118,35 +134,41 @@
         </div>
 
         <!-- generate workout button -->
-        <button class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold">Generate Workout</button>
+        <button
+          class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold"
+        >
+          Generate Workout
+        </button>
       </section>
       <!-- Workout Page Main Section -->
-      
 
-      
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-carrot"></i>
+          <a href="recipes.html"><i class="fas fa-carrot"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-home"></i>
+          <a href="index.html"><i class="fas fa-home"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-list"></i>
+          <a href="saved.html"><i class="fas fa-list"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-dumbbell"></i>
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>
         </button>
       </nav>
+      <!-- Navigation Section -->
     </main>
 
     <!-- jQuery link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- js link -->
     <script src="./assets/js/workout.js"></script>
   </body>

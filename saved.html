@@ -15,38 +15,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- logo link-->
+    <link rel = "icon" href = "./assets/images/favicon.ico" type = "x-icon">
 
     <title>nutrigainz</title>
   </head>
 
   <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
-    
-    <main class="min-h-screen flex flex-col">
 
-      <!-- Main Section -->
-      <section id="workout-tab" class="flex flex-grow justify-center mx-12 my-10 h-24 bg-secondary rounded-[20px]">
-      </section>      
+    <main class="min-h-screen flex flex-col">
+      <!-- Logo -->
+      <section class="flex items-center justify-center mt-6 mb-2">
+        <img src="./assets/images/nutrigainz.svg" alt="Nutrigainz logo" height="70"/>
+      </section>
+      
+      <!-- Workout Section -->
+      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-4 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]">
+        <h2 class="w-9/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px] font-semibold">Saved Workouts</h2>
+      </section> 
+      
+      <!-- Recipe Section -->
+      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]">
+        <h2 class="w-9/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px] font-semibold">Saved Recipes</h2>
+        <div></div>
+      </section>  
+      <!-- Recipe Section -->
 
       
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-carrot"></i>
+          <a href="recipes.html"><i class="fas fa-carrot"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-home"></i>
+          <a href="index.html"><i class="fas fa-home"></i></a>          
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-list"></i>
+          <a href="saved.html"><i class="fas fa-list"></i></a>            
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <i class="fas fa-dumbbell"></i>
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
         </button>
       </nav>
-    </main>
+      <!-- Navigation Section -->
+      
+  </main>
 
     <!-- jQuery link -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
