@@ -34,8 +34,15 @@ body {
   font-weight: bold;
   color: white;
   background-color: var(--secondary);
-  transition: all 0.8s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
+
+/* .btn-hover2 {
+  position: fixed;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+} */
 
 .btn-hover2:hover {
   font-weight: bold;
@@ -80,6 +87,12 @@ select {
 .muscle-img {
   filter: invert(21%) sepia(63%) saturate(346%) hue-rotate(147deg) brightness(94%) contrast(87%);
 }
+
+/* generate workout */
+.fa-heart {
+  color: pink;
+}
+
 /* WORKOUT SECTION STYLES END */
 
 
@@ -91,6 +104,14 @@ select {
 
 
 /* RECIPE STYLES START */
+/* .far {
+  font-family: "Montserrat", sans-serif;
+  font-weight: none;
+}
+
+.fa-heart {
+  content: "\f004";
+} */
 
 /* RECIPE STYLES END */
 
