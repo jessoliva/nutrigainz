@@ -36,39 +36,40 @@
       <!-- Main Section -->
       <section
         id="archive-wrapper"
-        class="mx-12 mt-4 mb-10 p-4 h-24 flex flex-grow justify-center items-center bg-secondary rounded-[20px]"
+        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]"
       > 
 
       <!-- Home Page Icons and text-->
       <!-- Could use more text to looke bettter on bigger displays -->
       <div class="flex flex-col items-center gap-14 m-4">
-
+        <!-- Home Page Image -->
         <div class="">
           <a href="index.html"><i class="fas fa-home fa-2x"></i></a>  
         </div>
 
+        <!-- Workouts Description -->
         <div class="text-center">
           <a href="workout.html"><i class="fas fa-dumbbell"></i></a>
           <h2>
-            <span class="underline">To save your workouts:</span></br>Go to the workouts tab and choose your workouts to save.
+            <span class="underline">To save your workouts:</span></br>By clicking on the icon that represents a dumbbell, you will be able to select variouse groups of muscles to workout. Based on your decision a random list of workouts will be genrated meeting your criteria.
           </h2>
         </div>
 
-        <div class="text-center">
-          <a href="saved.html"><i class="fas fa-list"></i></a>
-          <h2>
-            <span class="underline">To View your saved items:</span></br>You will be able to view saved workouts and recipes with this tab
-          </h2>
-        </div>
-
+        <!-- Recipes Description -->
         <div class="text-center">
           <a href="recipes.html"><i class="fas fa-carrot"></i></a>
           <h2>
-            <span class="underline">To save your recipes:</span></br> Go here to search for and save recipes! 
-            (Search recipes by ingredient)
+            <span class="underline mb-16">To save your recipes:</span></br>By selecting the carrot icon, you will have the option to input recipe ingredients. Similarly to the workouts section, a list of random dishes and accompanying recipes will be displayed.         
           </h2>
         </div>
 
+        <!-- Saved Items Description -->
+        <div class="text-center">
+          <a href="saved.html"><i class="fas fa-list"></i></a>
+          <h2>
+            <span class="underline">To View your saved items:</span></br>After selecting the icon that repressents a list, you will be able to view your saved items for later use, or keep them saved at your convenience.
+          </h2>
+        </div>
       </div>
       </section>  
 
@@ -76,19 +77,19 @@
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="recipes.html"><i class="fas fa-carrot"></i></a>
-        </button>
-
-        <button class="btn-hover w-16 h-16 rounded-full">
           <a href="index.html"><i class="fas fa-home"></i></a>          
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="saved.html"><i class="fas fa-list"></i></a>            
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
+          <a href="recipes.html"><i class="fas fa-carrot"></i></a>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <a href="saved.html"><i class="fas fa-list"></i></a>            
         </button>
       </nav>
     <!-- Navigation Section -->
