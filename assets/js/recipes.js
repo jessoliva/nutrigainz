@@ -186,8 +186,8 @@ var toggleHeartIcon = function(event) {
     
     var favoriteToggle = event.target
 
-    event.target.closest('i').classList.toggle("far");
-    event.target.closest('i').classList.toggle("fas");
+    event.target.closest("i").classList.toggle("far");
+    event.target.closest("i").classList.toggle("fas");
         if (event.target.classList.contains("fas")) {
             favoriteRecipes.push(event.target.closest("div").id)
         }
@@ -197,11 +197,13 @@ var toggleHeartIcon = function(event) {
 };
 
 var loadFavoriteRecipes = function() {
-    savedRecipes = JSON.parse(localStorage.getItem("favoriteRecipes"));
+    var savedRecipes = localStorage.getItem("favoriteRecipes");
 
-    if(!savedRecipes) {
-        localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
-    }
+    if (!savedRecipes) {
+        return false;
+    };
+
+    favoriteRecipes = JSON.parse(savedRecipes);
 }
 
 loadFavoriteRecipes();
