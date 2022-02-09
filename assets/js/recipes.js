@@ -83,7 +83,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //main container div 
         var recipeEl = document.createElement("div");
-        recipeEl.classList = "mx-5 my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+        recipeEl.classList = "my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
 
         //additional div 1
         var div1 = document.createElement("div");
@@ -91,27 +91,27 @@ var displayRecipes = function(data, searchTerm) {
 
         //add thumbnail for each recipe
         var thumbnailEl = document.createElement("img");
-        thumbnailEl.classList = "m-3 rounded-full";
+        thumbnailEl.classList = "rounded-full";
         thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
 
         //additional div 2
         var div2 = document.createElement("div");
-        div2.classList = "self-center ml-8 basis-7/12 list-none";
+        div2.classList = "self-center ml-3 basis-8/12 list-none";
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
-        linksEl.classList = "list-item flex-row justify-space-between align-center";
+        linksEl.classList = "text-xs list-item align-center";
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
-        titleEl.classList = "text-white underline uppercase text-sm text-white font-semibold";
+        titleEl.classList = "text-white underline font-semibold";
 
         //add nutrition information for each recipe
         var nutritionUlEl = document.createElement("ul");
-        nutritionUlEl.classList = "text-white text-sm";
+        nutritionUlEl.classList = "text-white text-xs";
 
         //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
         var servingsLiEl = document.createElement("li");
@@ -131,12 +131,12 @@ var displayRecipes = function(data, searchTerm) {
 
         //additional div 3
         var div3 = document.createElement("div");
-        div3.classList = "self-center justify-end basis-2/12";
+        div3.classList = "self-center basis-1/12";
         div3.id = data.hits[i]._links.self.href;
 
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "h-15 w-15 far fa-heart";
+        heartIconEl.classList = "far fa-heart";
         heartIconEl.id = "heart-icon"
 
         //append recipEl
