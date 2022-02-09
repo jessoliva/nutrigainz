@@ -75,18 +75,17 @@ function muscleGroupCards() {
     muscleGroupImageContainer.src = './assets/images/' + muscleGroup[i] + '.svg';
     muscleGroupImageContainer.setAttribute('width', '18%');
     muscleGroupImageContainer.setAttribute('style', 'transform: scale(-1,1)');
-    muscleGroupImageContainer.classList = 'muscle-img';
+    muscleGroupImageContainer.classList = 'muscle-img no-pointer';
 
     // create h2 element
     var muscleGroupCardName = document.createElement("h2");
-    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl";
-    muscleGroupCardName.setAttribute = ('style', 'pointer-events: none');
+    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl no-pointer";
     muscleGroupCardName.textContent = muscleGroup[i] + ' Day';
 
     // create info element
     var moreInfoBtn = document.createElement("i");
     moreInfoBtn.id = muscleGroup[i] + "-info";
-    moreInfoBtn.classList = 'fas fa-info-circle';
+    moreInfoBtn.classList = 'fas fa-info-circle no-pointer';
 
     muscleGroupCard.append(muscleGroupImageContainer, muscleGroupCardName, moreInfoBtn);
     muscleGroupWrapperEl.appendChild(muscleGroupCard);
@@ -225,8 +224,9 @@ var displayExerciseList = function (data) {
     // container holding info for exercise
     var exerciseDescription = document.createElement("div");    
     exerciseDescription.classList = "content bg-primary rounded-[26px]";
+    //
     // create p for each description
-    var exerciseP = document.createElement('div');
+    var exerciseP = document.createElement('p');
     exerciseP.classList = 'p-2';
     exerciseP.innerHTML = data.results[i].description;
     // append description paragraph to div
@@ -244,6 +244,7 @@ var displayExerciseList = function (data) {
 
   for (var i = 0; i < collapseList.length; i++) {
     collapseList[i].addEventListener("click", function () {
+      console.log(this);
       this.classList.toggle("active");
       var content = this.nextElementSibling;
 
@@ -556,7 +557,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
       loadIndMuscles(muscleGroupArray);
     }
   } 
-  else if (event.target.id === "Legs-info") {
+  else if (event.target.id === "Legs-group") {
     for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
       var muscle = muscleGroupCardArray[0].results[i];
 
@@ -572,7 +573,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
       loadIndMuscles(muscleGroupArray);
     }
   } 
-  else if (event.target.id === "Chest-info") {
+  else if (event.target.id === "Chest-group") {
     for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
       var muscle = muscleGroupCardArray[0].results[i];
 
@@ -582,7 +583,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
       loadIndMuscles(muscleGroupArray);
     }
   } 
-  else if (event.target.id === "Back-info") {
+  else if (event.target.id === "Back-group") {
     for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
       var muscle = muscleGroupCardArray[0].results[i];
 
@@ -592,7 +593,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
       loadIndMuscles(muscleGroupArray);
     }
   } 
-  else if (event.target.id === "Core-info") {
+  else if (event.target.id === "Core-group") {
     for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
       var muscle = muscleGroupCardArray[0].results[i];
 

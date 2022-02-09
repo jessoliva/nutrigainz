@@ -2,13 +2,15 @@ var userFormEl = document.querySelector("#user-form")
 var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
 
+var favoriteRecipes = []
 
-// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
-// var appId = "&app_id=7ac48de2"
 
-//Victoria's API keys
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
+
+//Victoria's API keys
+// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
+// var appId = "&app_id=7ac48de2"
 
 
 var getRecipes = function(ingredients) {
@@ -75,6 +77,7 @@ var displayRecipes = function(data, searchTerm) {
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
 
+        //main container div 
         var recipeEl = document.createElement("div");
         recipeEl.classList = "individual-recipes";
 
@@ -116,12 +119,63 @@ var displayRecipes = function(data, searchTerm) {
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
+        titleEl.classList = "text-white underline uppercase text-sm text-white font-semibold";
+
+        //add nutrition information for each recipe
+        var nutritionUlEl = document.createElement("ul");
+        nutritionUlEl.classList = "text-white text-sm";
+
+
+        //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
+        var servingsLiEl = document.createElement("li");
+        servingsLiEl.textContent = "Servings: " + servings;
+
+        var caloriesLiEl = document.createElement("li");
+        caloriesLiEl.textContent = "Calories: " + Math.round(calories);
+
+        var carbsLiEl = document.createElement("li");
+        carbsLiEl.textContent = "Carbs: " + Math.round(carbsValue) + " " + carbsUnit;
+
+        var proteinLiEl = document.createElement("li");
+        proteinLiEl.textContent = "Protein: " + Math.round(proteinValue) + " " + proteinUnit;
+
+        var fatsLiEl = document.createElement("li");
+        fatsLiEl.textContent = "Fat: " + Math.round(fatsValue) + " " + fatsUnit;
+
+        //additional div 3
+        var div3 = document.createElement("div");
+        div3.classList = "self-center justify-end basis-2/12";
+        div3.id = data.hits[i]._links.self.href;
+
+        //add heart icon to each container
+        var heartIconEl = document.createElement("i");
+        heartIconEl.classList = "h-15 w-15 far fa-heart";
+        heartIconEl.id = "heart-icon"
+
+
+
+        //append recipEl
+        recipeEl.appendChild(div1);
+
+        //append image to container
+        div1.appendChild(thumbnailEl);
+
+        //append div2
+        recipeEl.appendChild(div2);
+
+        //append links to container
+        div2.appendChild(linksEl);
 
         //append title to links
         linksEl.appendChild(titleEl);
 
-        //append links to container
-        recipeEl.appendChild(linksEl);
+    
+        //append nutrion information to list
+        nutritionUlEl.appendChild(servingsLiEl);
+        nutritionUlEl.appendChild(caloriesLiEl);
+        nutritionUlEl.appendChild(carbsLiEl);
+        nutritionUlEl.appendChild(fatsLiEl);
+        nutritionUlEl.appendChild(proteinLiEl);
 
         //append heart to container
         recipeEl.appendChild(heartIconEl);
@@ -141,7 +195,40 @@ var displayRecipes = function(data, searchTerm) {
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
+
     }
 };
 
+// //toggle the heart icon on click
+// var toggleHeartIcon = function(event) {
+//     document.getElementById("heart-icon").classList.toggle("far");
+//     document.getElementById("heart-icon").classList.toggle("fas");
+// };
+
+//toggle the heart icon on click
+var toggleHeartIcon = function(event) {
+    
+    var favoriteToggle = event.target
+
+    event.target.classList.toggle("far");
+    event.target.classList.toggle("fas");
+        if (event.target.classList.contains("fas")) {
+            favoriteRecipes.push(event.target.closest("div").id)
+        }
+    
+    localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
+    
+};
+
+var loadFavoriteRecipes = function() {
+    savedRecipes = JSON.parse(localStorage.getItem("favoriteRecipes"));
+
+    if(!savedRecipes) {
+        localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
+    }
+}
+
+loadFavoriteRecipes();
+
 userFormEl.addEventListener("submit", formSubmitHandler);
+recipeContainerEl.addEventListener("click", toggleHeartIcon);

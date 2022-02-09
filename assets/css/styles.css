@@ -12,6 +12,11 @@ body {
 .scroll {
   overflow: auto;
 }
+
+/* prevent children from taking on click event */
+.no-pointer {
+  pointer-events: none;
+}
 /* UNIVERSAL STYLES END */
 
 
