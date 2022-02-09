@@ -4,27 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- tailwind link -->
     <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
     <!-- tailwind js link -->
     <script src="./tailwind.config.js"></script>
-    <!-- font awesome link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
+    <!-- font awesome link --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
     <!-- google fonts link -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <!-- logo link-->
+    <link rel = "icon" href = "./assets/images/favicon.ico" type = "x-icon">
 
     <title>nutrigainz</title>
   </head>
 
   <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
+
+    <!-- Logo -->
+    <section class="flex items-center justify-center mt-6 mb-2 ">
+      <img src="./assets/images/nutrigainz.svg" alt="Nutrigainz logo" width="325" height="100"> 
+    </section>
+
     <main class="min-h-screen flex flex-col">
       <!-- Recipes Page Main Section -->
       <section
@@ -32,8 +35,8 @@
       >
         <!-- display recipes -->
         <div>
-          <h2 class="subtitle">
-            Showing recipes for: <span id="ingredient-search-term"></span>
+          <h2 class="subtitle text-center text-xl font-semibold">
+            Displaying Recipes For: <span id="ingredient-search-term"></span>
           </h2>
           <div id="recipes-container" class="list-group"></div>
         </div>
@@ -81,9 +84,9 @@
         </button>
       </nav>
      <!-- Navigation Section -->
-
     </main>
 
+    
     <!-- jQuery link -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -94,3 +97,4 @@
     <script src="./assets/js/recipes.js"></script>
   </body>
 </html>
+

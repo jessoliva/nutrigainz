@@ -45,6 +45,10 @@ var formSubmitHandler = function(event) {
     event.preventDefault();
     var ingredients = ingredientSearchEl.value.trim();
 
+    // get span element to display user ingredients
+    var spanEl = document.getElementById('ingredient-search-term');
+    spanEl.textContent = ingredients
+
     if (ingredients) {
         getRecipes(ingredients);
         ingredientSearchEl.value = "";
@@ -77,44 +81,29 @@ var displayRecipes = function(data, searchTerm) {
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
 
+
         //main container div 
         var recipeEl = document.createElement("div");
-        recipeEl.classList = "individual-recipes";
+        recipeEl.classList = "mx-5 my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+
+        //additional div 1
+        var div1 = document.createElement("div");
+        div1.classList = "basis-3/12 flex-col self-center";
+
+        //add thumbnail for each recipe
+        var thumbnailEl = document.createElement("img");
+        thumbnailEl.classList = "m-3 rounded-full";
+        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
+
+        //additional div 2
+        var div2 = document.createElement("div");
+        div2.classList = "self-center ml-8 basis-7/12 list-none";
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
         linksEl.classList = "list-item flex-row justify-space-between align-center";
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
-
-        //add heart icon to each container
-        var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "far fa-heart"
-
-        //add nutrition information for each recipe
-        var nutritionUlEl = document.createElement("ul");
-
-        //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
-        var servingsLiEl = document.createElement("li");
-        servingsLiEl.textContent = "Servings: " + servings;
-
-        var caloriesLiEl = document.createElement("li");
-        caloriesLiEl.textContent = "Calories: " + Math.round(calories);
-
-        var carbsLiEl = document.createElement("li");
-        carbsLiEl.textContent = "Carbs: " + Math.round(carbsValue) + " " + carbsUnit;
-
-        var proteinLiEl = document.createElement("li");
-        proteinLiEl.textContent = "Protein: " + Math.round(proteinValue) + " " + proteinUnit;
-
-        var fatsLiEl = document.createElement("li");
-        fatsLiEl.textContent = "Fat: " + Math.round(fatsValue) + " " + fatsUnit;
-
-
-        //add thumbnail for each recipe
-        var thumbnailEl = document.createElement("img");
-        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
-
 
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
@@ -177,21 +166,14 @@ var displayRecipes = function(data, searchTerm) {
         nutritionUlEl.appendChild(fatsLiEl);
         nutritionUlEl.appendChild(proteinLiEl);
 
-        //append heart to container
-        recipeEl.appendChild(heartIconEl);
-
-        //append nutrion information to list
-        nutritionUlEl.appendChild(servingsLiEl);
-        nutritionUlEl.appendChild(caloriesLiEl);
-        nutritionUlEl.appendChild(carbsLiEl);
-        nutritionUlEl.appendChild(fatsLiEl);
-        nutritionUlEl.appendChild(proteinLiEl);
-
         //append nutrition list to container
-        recipeEl.appendChild(nutritionUlEl);
+        div2.appendChild(nutritionUlEl);
 
-        //append image to container
-        recipeEl.appendChild(thumbnailEl);
+        //append div3
+        recipeEl.appendChild(div3);
+
+        //append heart to container
+        div3.appendChild(heartIconEl);
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
@@ -231,4 +213,4 @@ var loadFavoriteRecipes = function() {
 loadFavoriteRecipes();
 
 userFormEl.addEventListener("submit", formSubmitHandler);
-recipeContainerEl.addEventListener("click", toggleHeartIcon);
+recipeContainerEl.addEventListener("click", toggleHeartIcon)
