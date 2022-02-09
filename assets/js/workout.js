@@ -364,6 +364,8 @@ var displayRandomWorkout = function (data) {
   //cut finalRandomArray to only first 6 exercises 
   finalRandomArray = finalRandomArray.splice(0, 6);
 
+  console.log(finalRandomArray);
+
   var returnBtn = document.createElement("button");
   returnBtn.setAttribute("type", "button");
   returnBtn.setAttribute("name", "returnbtn");
