@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- tailwind link -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
+    <!-- tailwind js link -->
+    <script src="./tailwind.config.js"></script>
+    <!-- font awesome link --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <!-- icons8 link -->
+    <!-- <a href="https://icons8.com/icon/3rL3h7OTSyT1/arm-massage-area">Arm Massage Area icon by Icons8</a> -->
+    <!-- google fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>nutrigainz</title>
+  </head>
+
+  <body class="bg-gradient-to-r from-primary to-[#1B3137] text-white">
+    
+    <main class="min-h-screen flex flex-col">
+
+      <!-- Workout Page Main Section -->
+      <!-- body days section -->
+      <section id="archive-wrapper" class="scroll mx-12 my-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]">
+
+        <!-- body days section -->
+        <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
+          <!-- <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
+            <img src="./assets/images/arms.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
+            <h2 class="px-3 font-semibold text-xl">Arm Day</h2>
+            <i class="fas fa-info-circle"></i>
+          </div>
+  
+          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
+            <img src="./assets/images/legs.svg" width="18%" class="muscle-img"/> 
+            <h2 class="px-3 font-semibold text-xl">Leg Day</h2>
+            <i class="fas fa-info-circle"></i>
+          </div>
+  
+          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
+            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
+            <h2 class="px-3 font-semibold text-xl">Chest Day</h2>
+            <i class="fas fa-info-circle"></i>
+          </div>
+  
+          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
+            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
+            <h2 class="px-3 font-semibold text-xl">Back Day</h2>
+            <i class="fas fa-info-circle"></i>
+          </div>
+  
+          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
+            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
+            <h2 class="px-3 font-semibold text-xl">Core Day</h2>
+            <i class="fas fa-info-circle"></i>
+          </div> -->
+        </section>
+
+        <!-- individual muscles for body days section -->
+        <section id="individual-muscle-wrapper" class="scroll flex flex-wrap justify-center">
+          <!-- <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
+
+          <div id="muscles">
+            <div id="Anterior deltoid" class="ind-muscle-card p-3 m-3 flex flex-wrap justify-center  bg-primary rounded-[26px]" data-muscleid="2">
+              <h2 class="p-2 px-8 mb-3 bg-secondary rounded-[26px] text-lg text-center">Anterior deltoid</h2>
+              <div id="2" class="muscle-image" style="background-image: url(https://wger.de/static/images/muscles/secondary/muscle-2.svg), url(https://wger.de/static/images/muscles/muscular_system_front.svg); width: 150px; height: 276px; background-size: 150px">
+              </div>
+            </div>
+          </div> -->
+        </section>
+
+        <!-- exercises for individual muscles section -->
+        <section id="exercise-wrapper" class="scroll flex flex-wrap justify-center">
+
+          <!-- <div id="307" class="individual-exercise w-11/12">
+            <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Bear Walk</button>
+            <div class="content">
+              <p>-Rest your weight on your palms and the balls of your feet, not dissimilar to normal pushup position</p>
+              <p>-Move by stepping with your R palm and L foot, then your L palm and R foot.&nbsp; Basically, walk like a lumbering bear.</p>
+              <p>-Move as fast as you can.&nbsp; Measure your reps/sets in either distance (i.e. 40 yards) or time (i.e. 45 seconds)</p>
+              <p>-Works your Pecs, Deltoids, Triceps, Traps, Lats, Abs and Lower Back, Hip Flexors, Quads, Glutes and Calves</p>
+            </div>
+          </div>
+
+          <div id="152" class="individual-exercise w-11/12">
+            <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Shoulder Press, on Machine</button>
+            <div class="content"></div>
+          </div>
+         -->
+          
+        </section>
+      </section>
+
+
+
+
+
+
+      <!-- generate workout section -->
+      <section class="mx-12 mb-10 rounded-[26px] text-sm text-center">
+
+        <!-- drop down -->
+        <div class="mb-4">
+          <select id="day-select" class="w-5/6 rounded-[26px] text-[#142429]">
+            <option value="">Select a Training Day</option>
+            <option value="arm">Arms</option>
+            <option value="legs">Legs</option>
+            <option value="chest">Chest</option>
+            <option value="back">Back</option>
+            <option value="core">Core</option>
+          </select>
+        </div>
+
+        <!-- generate workout button -->
+        <button class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold">Generate Workout</button>
+      </section>
+      <!-- Workout Page Main Section -->
+      
+
+      
+      <!-- Navigation Section -->
+      <nav class="flex justify-around bg-secondary text-center text-4xl">
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-carrot"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-home"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-list"></i>
+        </button>
+
+        <button class="btn-hover w-16 h-16 rounded-full">
+          <i class="fas fa-dumbbell"></i>
+        </button>
+      </nav>
+    </main>
+
+    <!-- jQuery link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- js link -->
+    <script src="./assets/js/workout.js"></script>
+  </body>
+</html>

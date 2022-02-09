@@ -2,8 +2,6 @@ var userFormEl = document.querySelector("#user-form")
 var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
 
-var favoriteRecipes = []
-
 
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
@@ -76,15 +74,11 @@ var displayRecipes = function(data, searchTerm) {
         var proteinValue = data.hits[i].recipe.totalNutrients.PROCNT.quantity;
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
-<<<<<<< HEAD
 
-=======
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //main container div 
         var recipeEl = document.createElement("div");
-<<<<<<< HEAD
-        recipeEl.classList = "mx-5 my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+        recipeEl.classList = "mx-5 my-6 flex justify-center self-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
 
         //additional div 1
         var div1 = document.createElement("div");
@@ -98,9 +92,6 @@ var displayRecipes = function(data, searchTerm) {
         //additional div 2
         var div2 = document.createElement("div");
         div2.classList = "self-center ml-8 basis-7/12 list-none";
-=======
-        recipeEl.classList = "individual-recipes";
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
@@ -108,38 +99,6 @@ var displayRecipes = function(data, searchTerm) {
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
-<<<<<<< HEAD
-=======
-        //add heart icon to each container
-        var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "far fa-heart"
-
-        //add nutrition information for each recipe
-        var nutritionUlEl = document.createElement("ul");
-
-        //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
-        var servingsLiEl = document.createElement("li");
-        servingsLiEl.textContent = "Servings: " + servings;
-
-        var caloriesLiEl = document.createElement("li");
-        caloriesLiEl.textContent = "Calories: " + Math.round(calories);
-
-        var carbsLiEl = document.createElement("li");
-        carbsLiEl.textContent = "Carbs: " + Math.round(carbsValue) + " " + carbsUnit;
-
-        var proteinLiEl = document.createElement("li");
-        proteinLiEl.textContent = "Protein: " + Math.round(proteinValue) + " " + proteinUnit;
-
-        var fatsLiEl = document.createElement("li");
-        fatsLiEl.textContent = "Fat: " + Math.round(fatsValue) + " " + fatsUnit;
-
-
-        //add thumbnail for each recipe
-        var thumbnailEl = document.createElement("img");
-        thumbnailEl.setAttribute("src", data.hits[i].recipe.image);
-
-
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
         //create a span element to hold recipe name
         var titleEl = document.createElement("span");
         titleEl.textContent = recipeName;
@@ -169,7 +128,6 @@ var displayRecipes = function(data, searchTerm) {
         //additional div 3
         var div3 = document.createElement("div");
         div3.classList = "self-center justify-end basis-2/12";
-        div3.id = data.hits[i]._links.self.href;
 
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
@@ -201,7 +159,6 @@ var displayRecipes = function(data, searchTerm) {
         nutritionUlEl.appendChild(fatsLiEl);
         nutritionUlEl.appendChild(proteinLiEl);
 
-<<<<<<< HEAD
         //append nutrition list to container
         div2.appendChild(nutritionUlEl);
 
@@ -210,23 +167,6 @@ var displayRecipes = function(data, searchTerm) {
 
         //append heart to container
         div3.appendChild(heartIconEl);
-=======
-        //append heart to container
-        recipeEl.appendChild(heartIconEl);
-
-        //append nutrion information to list
-        nutritionUlEl.appendChild(servingsLiEl);
-        nutritionUlEl.appendChild(caloriesLiEl);
-        nutritionUlEl.appendChild(carbsLiEl);
-        nutritionUlEl.appendChild(fatsLiEl);
-        nutritionUlEl.appendChild(proteinLiEl);
-
-        //append nutrition list to container
-        recipeEl.appendChild(nutritionUlEl);
-
-        //append image to container
-        recipeEl.appendChild(thumbnailEl);
->>>>>>> acaa4c3ce6856f511adda646510801d0ad45fd54
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
@@ -234,36 +174,10 @@ var displayRecipes = function(data, searchTerm) {
     }
 };
 
-// //toggle the heart icon on click
-// var toggleHeartIcon = function(event) {
-//     document.getElementById("heart-icon").classList.toggle("far");
-//     document.getElementById("heart-icon").classList.toggle("fas");
-// };
-
 //toggle the heart icon on click
 var toggleHeartIcon = function(event) {
-    
-    var favoriteToggle = event.target
-
-    event.target.classList.toggle("far");
-    event.target.classList.toggle("fas");
-        if (event.target.classList.contains("fas")) {
-            favoriteRecipes.push(event.target.closest("div").id)
-        }
-    
-    localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
-    
+    document.getElementById("heart-icon").classList.toggle("far");
+    document.getElementById("heart-icon").classList.toggle("fas");
 };
 
-var loadFavoriteRecipes = function() {
-    savedRecipes = JSON.parse(localStorage.getItem("favoriteRecipes"));
-
-    if(!savedRecipes) {
-        localStorage.setItem("favoriteRecipes", JSON.stringify(favoriteRecipes));
-    }
-}
-
-loadFavoriteRecipes();
-
 userFormEl.addEventListener("submit", formSubmitHandler);
-recipeContainerEl.addEventListener("click", toggleHeartIcon);
