@@ -21,8 +21,7 @@
     <title>nutrigainz</title>
   </head>
 
-  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white ">
-
+  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
     <main class="min-h-screen flex flex-col">
       <!-- Logo -->
       <section class="flex items-center justify-center mt-6 mb-2">
@@ -32,15 +31,43 @@
           height="70"
         />
       </section>
-      
-      <!-- Main Section -->
-      <section
-        id="archive-wrapper"
-        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]"
-      >
-      </section>  
 
-      
+      <!-- Recipes Page Main Section -->
+      <section
+        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]"
+      >
+        <!-- display recipes -->
+        <div>
+          <h2 class="subtitle text-center text-lg font-semibold">
+            Displaying Recipes For: <span id="ingredient-search-term"></span>
+          </h2>
+          <div id="recipes-container" class="list-group"></div>
+        </div>
+      </section>
+
+      <section class="mx-12 mb-10 rounded-[26px] text-sm text-center">
+        <!-- search recipes -->
+        <div class="card">
+          <form id="user-form" class="card-body">
+            <input
+              name="ingredients"
+              id="ingredients"
+              type="text"
+              autofocus="true"
+              placeholder="Enter an Ingredient!"
+              class="form-input mb-4 w-5/6 rounded-[26px] text-center text-[#142429]"
+            />
+            <button
+              type="submit"
+              class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold"
+            >
+              Search Recipes
+            </button>
+          </form>
+        </div>
+      </section>
+      <!-- Recipes Page Main Section -->
+
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">
         <button class="btn-hover w-16 h-16 rounded-full">
@@ -59,14 +86,17 @@
           <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
         </button>
       </nav>
-    <!-- Navigation Section -->
-    
+     <!-- Navigation Section -->
     </main>
 
+    
     <!-- jQuery link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- js link -->
-    <!-- <script src="./assets/js/workout.js"></script> -->
+    <script src="./assets/js/recipes.js"></script>
   </body>
 </html>
