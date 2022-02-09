@@ -71,10 +71,10 @@ select {
   text-align: center;
 }
 
-select:hover {
-  border: 5px solid #69A4B5;
+/* select:hover {
+  box-shadow: #bef264;
   transition: all 0.4s ease-in-out;
-}
+} */
 
 /* images styles */
 .muscle-img {

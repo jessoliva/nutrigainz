@@ -45,10 +45,6 @@ var formSubmitHandler = function(event) {
     event.preventDefault();
     var ingredients = ingredientSearchEl.value.trim();
 
-    // get span element to display user ingredients
-    var spanEl = document.getElementById('ingredient-search-term');
-    spanEl.textContent = ingredients
-
     if (ingredients) {
         getRecipes(ingredients);
         ingredientSearchEl.value = "";
@@ -213,4 +209,4 @@ var loadFavoriteRecipes = function() {
 loadFavoriteRecipes();
 
 userFormEl.addEventListener("submit", formSubmitHandler);
-recipeContainerEl.addEventListener("click", toggleHeartIcon)
+recipeContainerEl.addEventListener("click", toggleHeartIcon);
