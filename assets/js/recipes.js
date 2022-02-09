@@ -45,6 +45,10 @@ var formSubmitHandler = function(event) {
     event.preventDefault();
     var ingredients = ingredientSearchEl.value.trim();
 
+    // get span element to display user ingredients
+    var spanEl = document.getElementById('ingredient-search-term');
+    spanEl.textContent = ingredients
+
     if (ingredients) {
         getRecipes(ingredients);
         ingredientSearchEl.value = "";
@@ -76,7 +80,6 @@ var displayRecipes = function(data, searchTerm) {
         var proteinValue = data.hits[i].recipe.totalNutrients.PROCNT.quantity;
         var proteinUnit = data.hits[i].recipe.totalNutrients.PROCNT.unit;
         var servings = data.hits[i].recipe.yield;
-
 
         //main container div 
         var recipeEl = document.createElement("div");
@@ -110,7 +113,6 @@ var displayRecipes = function(data, searchTerm) {
         var nutritionUlEl = document.createElement("ul");
         nutritionUlEl.classList = "text-white text-sm";
 
-
         //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
         var servingsLiEl = document.createElement("li");
         servingsLiEl.textContent = "Servings: " + servings;
@@ -137,8 +139,6 @@ var displayRecipes = function(data, searchTerm) {
         heartIconEl.classList = "h-15 w-15 far fa-heart";
         heartIconEl.id = "heart-icon"
 
-
-
         //append recipEl
         recipeEl.appendChild(div1);
 
@@ -153,7 +153,6 @@ var displayRecipes = function(data, searchTerm) {
 
         //append title to links
         linksEl.appendChild(titleEl);
-
     
         //append nutrion information to list
         nutritionUlEl.appendChild(servingsLiEl);
@@ -173,7 +172,6 @@ var displayRecipes = function(data, searchTerm) {
 
         //append container to the dom
         recipeContainerEl.appendChild(recipeEl);
-
     }
 };
 
@@ -188,8 +186,8 @@ var toggleHeartIcon = function(event) {
     
     var favoriteToggle = event.target
 
-    event.target.classList.toggle("far");
-    event.target.classList.toggle("fas");
+    event.target.closest('i').classList.toggle("far");
+    event.target.closest('i').classList.toggle("fas");
         if (event.target.classList.contains("fas")) {
             favoriteRecipes.push(event.target.closest("div").id)
         }

@@ -3,13 +3,9 @@
 const workoutTabEl = document.getElementById("workout-tab");
 const archiveWrapperEl = document.getElementById("archive-wrapper");
 const muscleGroupWrapperEl = document.getElementById("muscle-group-wrapper");
-const individualMusclesWrapperEl = document.getElementById(
-  "individual-muscle-wrapper"
-);
+const individualMusclesWrapperEl = document.getElementById("individual-muscle-wrapper");
 const exerciseListWrapperEl = document.getElementById("exercise-wrapper");
-const generateWorkoutWrapperEl = document.getElementById(
-  "generate-workout-wrapper"
-);
+const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapper");
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
 const workoutDropdownEl = document.getElementById("workout-list");
 const muscleGroup = ["Arms", "Legs", "Chest", "Back", "Core"];
@@ -118,7 +114,6 @@ var loadIndMuscles = function () {
   returnBtn.textContent = "Back";
   individualMusclesWrapperEl.appendChild(returnBtn);
 
-
   //loop through array to generate individual muscle cards
   for (var i = 0; i < muscleGroupArray.length; i++) {
     // muscle card container that hold image and heading
@@ -130,7 +125,7 @@ var loadIndMuscles = function () {
 
     // heading of container
     var muscleName = document.createElement("h2");
-    muscleName.classList = 'p-2 px-8 mb-3 bg-secondary rounded-[26px] text-lg text-center';
+    muscleName.classList = 'muscle-h2 p-2 px-8 mb-3 bg-secondary rounded-[26px] text-lg text-center';
     muscleName.textContent = muscleGroupArray[i].name;
 
     // image of container
@@ -223,11 +218,11 @@ var displayExerciseList = function (data) {
 
     // container holding info for exercise
     var exerciseDescription = document.createElement("div");    
-    exerciseDescription.classList = "content bg-primary rounded-[26px]";
+    exerciseDescription.classList = "content bg-tertiary rounded-[26px] text-semibold";
     //
     // create p for each description
     var exerciseP = document.createElement('p');
-    exerciseP.classList = 'p-2';
+    exerciseP.classList = 'p-2 text-primary text-semibold';
     exerciseP.innerHTML = data.results[i].description;
     // append description paragraph to div
     exerciseDescription.appendChild(exerciseP);
@@ -269,18 +264,19 @@ var displayExerciseList = function (data) {
 var randomizeWorkout = function () {
   chosenDay = [];
   //get information from dropdown and save as global variable
-  chosenDay =
-    workoutDropdownEl.options[workoutDropdownEl.selectedIndex].value;
+  chosenDay = workoutDropdownEl.options[workoutDropdownEl.selectedIndex].value;
 
-  if (chosenDay === "Arms") {
+  console.log(chosenDay);
+
+  if (chosenDay === "arms") {
     fetchArms();
-  } else if (chosenDay === "Legs") {
+  } else if (chosenDay === "legs") {
     fetchLegs();
-  } else if (chosenDay === "Chest") {
+  } else if (chosenDay === "chest") {
     fetchChest();
-  } else if (chosenDay === "Back") {
+  } else if (chosenDay === "back") {
     fetchBack();
-  } else if (chosenDay === "Core") {
+  } else if (chosenDay === "core") {
     fetchCore();
   } else {
     //TO DO: NEEDS TO BE A MODAL
@@ -327,7 +323,7 @@ var displayRandomWorkout = function (data) {
        "background-image: url(./assets/images/core.svg); background-repeat: no-repeat; width: 150px; height: 100px; background-size: 110px"
      );
   }
-  exerciseListWrapperEl.appendChild(muscleGroupImageContainer);
+  generateWorkoutWrapperEl.appendChild(muscleGroupImageContainer);
 
   //pushes each array of workout results into one array
   for (var i = 0; i < data.length; i++) {
@@ -365,7 +361,7 @@ var displayRandomWorkout = function (data) {
   };
   simpleArray(randomWorkoutArray);
 
-  //cut finalRandomArray to only first 6 exercises
+  //cut finalRandomArray to only first 6 exercises 
   finalRandomArray = finalRandomArray.splice(0, 6);
 
   //loop through randomized array to generate exercise list
@@ -386,7 +382,7 @@ var displayRandomWorkout = function (data) {
 
     exerciseCard.appendChild(exerciseName);
     exerciseCard.appendChild(exerciseDescription);
-    exerciseListWrapperEl.appendChild(exerciseCard);
+    generateWorkoutWrapperEl.appendChild(exerciseCard);
   };
 
   //function to make exercise collapsibles work
@@ -417,22 +413,23 @@ var displayRandomWorkout = function (data) {
   returnBtn.setAttribute("name", "returnbtn");
   returnBtn.id = "returnbtn-random";
   returnBtn.textContent = "Back";
-  individualMusclesWrapperEl.appendChild(returnBtn);
+  generateWorkoutWrapperEl.appendChild(returnBtn);
 
   var favoriteBtn = document.createElement("button");
   favoriteBtn.setAttribute("type", "button");
   favoriteBtn.setAttribute("name", "favoriteBtn");
   favoriteBtn.id = "favoriteBtn-random";
   favoriteBtn.textContent = "Save Workout";
-  individualMusclesWrapperEl.appendChild(favoriteBtn);
+  generateWorkoutWrapperEl.appendChild(favoriteBtn);
 
   var makeCurrentWorkoutBtn = document.createElement("button");
   makeCurrentWorkoutBtn.setAttribute("type", "button");
   makeCurrentWorkoutBtn.setAttribute("name", "makeCurrentWorkoutBtn");
   makeCurrentWorkoutBtn.id = "makeCurrentWorkoutBtn-random";
   makeCurrentWorkoutBtn.textContent = "Try It!";
-  individualMusclesWrapperEl.appendChild(makeCurrentWorkoutBtn);
+  generateWorkoutWrapperEl.appendChild(makeCurrentWorkoutBtn);
 };
+
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {
@@ -512,35 +509,10 @@ async function fetchCore() {
 
 //EVENT LISTENERS
 //TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
-// generateWorkoutBtn.addEventListener("click", randomizeWorkout);
+generateWorkoutBtn.addEventListener("click", randomizeWorkout);
 
 //DYNAMIC EVENT LISTENERS
-//listener for back button on randomized workout and individual muscles
-document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
-  if (
-    event.target.matches("#returnbtn-ind-muscles") ||
-    event.target.matches("#returnbtn-random")
-  ) {
-    muscleGroupCards(muscleGroupCardArray);
-  }
-});
-
-//listener for back button on individual muscle exercise list
-document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
-  if (event.target.matches("#returnbtn-exercise")) {
-    loadIndMuscles();
-  }
-});
-
-//listener for individual muscle images to load exercises for individual muscles
-document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
-  if (event.target.matches(".muscle-image")) {
-    var muscleID = event.target.id;
-    loadExerciseList(muscleID);
-  }
-});
-
-//listener for muscle group info buttons to load individual muscles
+//listener for muscle group to load individual muscles
 document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
   if (event.target.id === "Arms-group") {
     for (var i = 0; i < muscleGroupCardArray[0].results.length; i++) {
@@ -602,6 +574,31 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
       }
       loadIndMuscles(muscleGroupArray);
     }
+  }
+});
+
+//listener for individual muscle images to load exercises for individual muscles
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (event.target.matches(".muscle-image") || event.target.matches(".muscle-h2")) {
+    var muscleID = event.target.id;
+    loadExerciseList(muscleID);
+  }
+});
+
+//listener for back button on individual muscle exercise list
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (event.target.matches("#returnbtn-exercise")) {
+    loadIndMuscles();
+  }
+});
+
+//listener for back button on randomized workout and individual muscles
+document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+  if (
+    event.target.matches("#returnbtn-ind-muscles") ||
+    event.target.matches("#returnbtn-random")
+  ) {
+    muscleGroupCards(muscleGroupCardArray);
   }
 });
 
