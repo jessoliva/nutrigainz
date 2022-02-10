@@ -286,6 +286,8 @@ var randomizeWorkout = function () {
 
 //generates and displays randomized workout list of six exercises from a muscle group
 var displayRandomWorkout = function (data) {
+  // display container for generated workout
+  generateWorkoutWrapperEl.classList.remove('hidden');
   //clear values
   muscleGroupWrapperEl.innerHTML = "";
   exerciseListWrapperEl.innerHTML = "";
@@ -524,6 +526,8 @@ async function fetchCore() {
 
 //EVENT LISTENERS
 //TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
+
+// generate workout function
 generateWorkoutBtn.addEventListener("click", randomizeWorkout);
 
 //DYNAMIC EVENT LISTENERS
@@ -614,7 +618,7 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
     event.target.matches("#returnbtn-random")
   ) {
     muscleGroupCards(muscleGroupCardArray);
-    // generateWorkoutWrapperEl.classList('hidden');
+    generateWorkoutWrapperEl.classList.add('hidden');
   }
 });
 
