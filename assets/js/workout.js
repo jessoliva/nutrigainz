@@ -123,19 +123,6 @@ var loadIndMuscles = function () {
   muscleList.id = "muscles";
   muscleList.classList = "scroll";
 
-  // var muscleListTitle = document.createElement("h2");
-  // muscleListTitle.textContent = "Select a Muscle for Exercise List"
-  // muscleList.appendChild(muscleListTitle);
-
-  // // create return button
-  // var returnBtn = document.createElement("button");
-  // returnBtn.setAttribute("type", "button");
-  // returnBtn.setAttribute("name", "returnbtn");
-  // returnBtn.id = "returnbtn-ind-muscles";
-  // returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
-  // returnBtn.textContent = "Back";
-  // individualMusclesWrapperEl.appendChild(returnBtn);
-
   //loop through array to generate individual muscle cards
   for (var i = 0; i < muscleGroupArray.length; i++) {
     // muscle card container that hold image and heading
@@ -209,10 +196,6 @@ var displayExerciseList = function (data) {
   muscleGroupWrapperEl.innerHTML = "";
   exerciseListWrapperEl.innerHTML = "";
   individualMusclesWrapperEl.innerHTML = "";
-
-  // var muscleWorkoutTitle = document.createElement("h3");
-  // muscleWorkoutTitle.textContent = "Select a Workout for Details";
-  // exerciseListWrapperEl.appendChild(muscleWorkoutTitle);
 
   // generate back button
   var returnBtn = document.createElement("button");
@@ -405,16 +388,6 @@ var displayRandomWorkout = function (data) {
   //cut finalRandomArray to only first 6 exercises 
   finalRandomArray = finalRandomArray.splice(0, 6);
 
-  console.log(finalRandomArray);
-
-  // var returnBtn = document.createElement("button");
-  // returnBtn.setAttribute("type", "button");
-  // returnBtn.setAttribute("name", "returnbtn");
-  // returnBtn.id = "returnbtn-random";
-  // returnBtn.classList = 'btn-hover2 mb-3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
-  // returnBtn.textContent = "Back";
-  // generateWorkoutWrapperEl.appendChild(returnBtn);
-
   //loop through randomized array to generate exercise list
   for (var i = 0; i < finalRandomArray.length; i++) {
     var exerciseCard = document.createElement("div");
@@ -465,26 +438,6 @@ var displayRandomWorkout = function (data) {
       }
     });
   };
-
-  // // save workout button and send to saved page
-  // var favoriteBtn = document.createElement("button");
-  // favoriteBtn.setAttribute("type", "button");
-  // favoriteBtn.setAttribute("name", "favoriteBtn");
-  // favoriteBtn.id = "favoriteBtn-random";
-  // favoriteBtn.classList = 'btn-hover2 mt-3 mr-2 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold';
-  // favoriteBtn.innerHTML = 'Save <i class="fa-solid fa-heart text-rose-300"></i>'
-  // // favoriteBtn.textContent = "Save Workout";
-  // generateWorkoutWrapperEl.appendChild(favoriteBtn);
-
-  // try workout button and send to home page
-  // append to global button
-  // makeCurrentWorkoutBtn.setAttribute("type", "button");
-  // makeCurrentWorkoutBtn.setAttribute("name", "makeCurrentWorkoutBtn");
-  // makeCurrentWorkoutBtn.setAttribute('onclick', )
-  // makeCurrentWorkoutBtn.id = "makeCurrentWorkoutBtn-random";
-  // makeCurrentWorkoutBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
-  // makeCurrentWorkoutBtn.textContent = "Try It!";
-  // generateWorkoutWrapperEl.appendChild(makeCurrentWorkoutBtn);
 };
 
 // // ('#makeCurrentWorkoutBtn-random').onclick(tryIt(finalRandomArray));
@@ -668,17 +621,6 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
     loadIndMuscles();
   }
 });
-
-//listener for back button on randomized workout and individual muscles
-// document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
-//   if (
-//     event.target.matches("#returnbtn-ind-muscles") ||
-//     event.target.matches("#returnbtn-random")
-//   ) {
-//     muscleGroupCards(muscleGroupCardArray);
-//     generateWorkoutWrapperEl.classList.add('hidden');
-//   }
-// });
 
 // return btn for individual muscles section
 document.getElementById('returnbtn-ind-muscles').addEventListener('click', function() {
