@@ -100,7 +100,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //create a link for each recipe
         var linksEl = document.createElement("a");
-        linksEl.classList = "text-xs list-item align-center";
+        linksEl.classList = "text-xs list-item align-center lg:text-xl";
         linksEl.setAttribute("href", data.hits[i].recipe.url);
         linksEl.setAttribute("target", "_blank");
 
@@ -111,7 +111,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //add nutrition information for each recipe
         var nutritionUlEl = document.createElement("ul");
-        nutritionUlEl.classList = "text-white text-xs";
+        nutritionUlEl.classList = "text-white text-xs lg:text-lg";
 
         //add li for nutrition information for each recipe (Servings, Calories, Carbs, Protein, and Fat)
         var servingsLiEl = document.createElement("li");

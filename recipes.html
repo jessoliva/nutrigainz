@@ -25,8 +25,8 @@
   <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
     <main class="min-h-screen flex flex-col">
       <!-- Logo -->
-      <section class="flex items-center justify-center mt-6 mb-2">
-        <img
+      <section class="flex items-center justify-center mt-6 mb-2 lg:justify-start lg:mt-10 lg:ml-8">
+        <img class="lg:h-28"
           src="./assets/images/nutrigainz.svg"
           alt="Nutrigainz logo"
           height="70"
@@ -35,11 +35,11 @@
 
       <!-- Recipes Page Main Section -->
       <section
-        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]"
+        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px] lg:mx-32"
       >
         <!-- display recipes -->
         <div>
-          <h2 class="subtitle p-3 bg-primary rounded-[20px] text-center text-lg font-semibold">
+          <h2 class="subtitle p-3 bg-primary rounded-[20px] text-center text-lg font-semibold lg:text-2xl lg:">
             Displaying Recipes For: 
           </br><span id="ingredient-search-term"></span>
           </h2>
@@ -71,7 +71,7 @@
       <!-- Recipes Page Main Section -->
 
       <!-- Navigation Section -->
-      <nav class="flex justify-around bg-secondary text-center text-4xl">
+      <nav class="flex justify-around bg-secondary text-center text-4xl lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6">
         <button class="btn-hover w-16 h-16 rounded-full">
           <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
         </button>
