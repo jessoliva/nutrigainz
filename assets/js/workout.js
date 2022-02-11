@@ -18,10 +18,11 @@ const exerciseListWrapperEl = document.getElementById("exercise-wrapper");
 
 // reference generate workout container
 const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapper");
-// reference addntl buttons section for generate workout container
-var genContainerBtns = document.getElementById('generate-btns');
 // reference generate workout btn
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
+// reference addntl buttons section for generate workout container
+var genContainerBtns = document.getElementById('generate-btns');
+
 // reference workout list container
 const workoutDropdownEl = document.getElementById("workout-list");
 
@@ -267,6 +268,9 @@ var displayExerciseList = function (data) {
 
 //send user input from dropdown to fetch muscle group
 var randomizeWorkout = function () {
+  // remove previous divs to prevent displaying multiple workouts!
+  $('div').remove('#exercise-card');
+
   // display container for generated workout
   generateWorkoutWrapperEl.classList.remove('hidden');
 
@@ -294,8 +298,9 @@ var randomizeWorkout = function () {
   }
 };
 
+// THE ISSUE IS WITH DISPLAYING THE ARRAY AGAIN!!! HAVE TO REMOVE THE FIRST ONE
+// display generated workout
 var displayRandomWorkout = function (data) {
-
   // display workout day title
   $('#day-title').removeClass('hidden');
 
@@ -440,24 +445,67 @@ var displayRandomWorkout = function (data) {
   };
 };
 
-// // ('#makeCurrentWorkoutBtn-random').onclick(tryIt(finalRandomArray));
+// reference save button
+let saveBtn = document.getElementById('saveBtn-random');
+
+// add event listener to call function with an argument!
+saveBtn.addEventListener('click', function() {
+  saveWorkout(finalRandomArray);
+}, false);
+
+let userWorkouts = [];
+
+// save workout to local storage
+function saveWorkout(finalArray) {
+
+  // push saved workout into array
+  userWorkouts.push(finalArray);
+
+  // save array holding workout into local storage
+  localStorage.setItem('Workouts', JSON.stringify(userWorkouts));
+
+  console.log('array is ', finalArray);
+};
+
+// load scores from local storage, if any, to save into savedWorkouts array
+function loadWorkout() {
+
+  // load saved workouts
+  let savedWorkout = localStorage.getItem('Workouts');
+  // convert it to array
+  savedWorkout = JSON.parse(savedWorkout);
+
+  // if there are no saved workouts, do nothing
+  if (savedWorkout === null) {
+    return;
+  }
+  // else there are saved workouts, add them to the userWorkouts = []; empty array
+  else {
+    userWorkouts = savedWorkout;
+  }
+  console.log(userWorkouts);
+}
+loadWorkout();
+
+// // DYNAMICALLY CREATED BUTTON
+// let tryBtn = document.createElement('button');
 // tryBtn.setAttribute('type', 'button');
 // tryBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
 // tryBtn.textContent = 'Tri It!'
+// genContainerBtns.append(tryBtn);
+
 // tryBtn.addEventListener('click', function () {
 //   tryIt(finalRandomArray)
 // }, false)
 // // if creating button within the 
 
-// generateWorkoutWrapperEl.append(tryBtn)
-// // makeCurrentWorkoutBtn.addEventListener('click', tryIt(finalRandomArray));
-
 // function tryIt(finalArray) {
 //   console.log('this array is ', finalArray);
 
 //   // get container from index.html document with getElementById and display array
-
 // };
+
+
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {
@@ -534,6 +582,7 @@ async function fetchCore() {
   ]);
   displayRandomWorkout(data);
 };
+
 
 //EVENT LISTENERS
 //TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
