@@ -1,5 +1,5 @@
 tailwind.config = {
-  content: ['./index.html'],
+  content: ['./index.html', './assets/css/styles.css'],
   theme: {
     colors: {
     'primary': '#142429',

@@ -29,7 +29,9 @@
   </head>
 
   <body class="bg-gradient-to-r from-primary to-[#1B3137] text-white">
+
     <main class="min-h-screen flex flex-col">
+
       <!-- Logo -->
       <section class="flex items-center justify-center mt-6 mb-2">
         <img
@@ -38,9 +40,10 @@
           height="70"
         />
       </section>
+      <!-- Logo -->
 
       <!-- Workout Page Main Section -->
-      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]">
+      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-5 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]">
 
         <!-- body days section -->
         <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
@@ -106,63 +109,75 @@
           </div>-->
         </section>
 
-        <!-- exercises for individual muscles section -->
+        <!-- generate workout section -->
+        <section id="generate-workout-wrapper" class="scroll flex flex-wrap justify-center">
+          <!-- <div id="undefined-image"></div> -->
 
-          <section id="generate-workout-wrapper" class="scroll flex flex-wrap justify-center">
-            <!-- <div id="undefined-image"></div>
-            <button type="button" name="returnbtn" id="returnbtn-random" class="btn-hover2 mb-3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
+          <h2 id="day-title" class="hidden pb-3 text-lg font-semibold"><span id="workout-day" class="text-tertiary"></span> Day Workout</h2>
 
-            <div id="exercise-card" data-exerciseid="146" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Dumbbells, Decline Bench</h2>
-              <div class="content">
-                <p>The exercise is the same as with a regular bench:</p>
-                <p>Take two dumbbells and lay on a bench, make sure the feet are firmly on the ground and your back is not arched, but has good contact with the bench. The arms are stretched in front of you, about shoulder wide. Bend now the arms a bit and let them down with a half-circle movement to the side. Without changing the angle of the elbow bring them in a fluid movement back up.</p>
-              </div>
+          <!-- <div id="exercise-card" data-exerciseid="146" class="w-full p-1">
+            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Dumbbells, Decline Bench</h2>
+            <div class="content">
+              <p>The exercise is the same as with a regular bench:</p>
+              <p>Take two dumbbells and lay on a bench, make sure the feet are firmly on the ground and your back is not arched, but has good contact with the bench. The arms are stretched in front of you, about shoulder wide. Bend now the arms a bit and let them down with a half-circle movement to the side. Without changing the angle of the elbow bring them in a fluid movement back up.</p>
             </div>
-            <div id="exercise-card" data-exerciseid="260" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Decline Pushups</h2>
-              <div class="content">
-                <p>With your feet raised approximately 30cm on a platform, align your shoulders, elbows and hands, then perform regular pushups. This emphasises the clavicular fibers of the pectoralis major.</p>
-              </div>
+          </div>
+          <div id="exercise-card" data-exerciseid="260" class="w-full p-1">
+            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Decline Pushups</h2>
+            <div class="content">
+              <p>With your feet raised approximately 30cm on a platform, align your shoulders, elbows and hands, then perform regular pushups. This emphasises the clavicular fibers of the pectoralis major.</p>
             </div>
-            <div id="exercise-card" data-exerciseid="194" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Cross-Bench Dumbbell Pullovers</h2>
-              <div class="content">
-                <p>Grasp a moderately weighted dumbbell so your palms are flat against the underside of the top plates and your thumbs are around the bar. Lie on your back across a flat bench so only your upper back and shoulders are in contact with the bench. Your feet should be set about shoulder-width apart and your head should hang slightly downward. With the dumbbell supported at arm's length directly about your chest, bend your arms about 15 degrees and keep them bent throughout the movement. Slowly lower the dumbbell backward and downward in a semicircle arc to as low a position as is comfortably possible. Raise it slowly back along the same arc to the starting point, and repeat for the required number of repetitions.</p>
-              </div>
+          </div>
+          <div id="exercise-card" data-exerciseid="194" class="w-full p-1">
+            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Cross-Bench Dumbbell Pullovers</h2>
+            <div class="content">
+              <p>Grasp a moderately weighted dumbbell so your palms are flat against the underside of the top plates and your thumbs are around the bar. Lie on your back across a flat bench so only your upper back and shoulders are in contact with the bench. Your feet should be set about shoulder-width apart and your head should hang slightly downward. With the dumbbell supported at arm's length directly about your chest, bend your arms about 15 degrees and keep them bent throughout the movement. Slowly lower the dumbbell backward and downward in a semicircle arc to as low a position as is comfortably possible. Raise it slowly back along the same arc to the starting point, and repeat for the required number of repetitions.</p>
             </div>
-            <div id="exercise-card" data-exerciseid="97" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Benchpress Dumbbells</h2>
-              <div class="content">
-                <p>The movement is very similar to benchpressing with a barbell, however, the weight is brought down to the chest at a lower point.</p>
-                <p>Hold two dumbbells and lay down on a bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>
-              </div>
+          </div>
+          <div id="exercise-card" data-exerciseid="97" class="w-full p-1">
+            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Benchpress Dumbbells</h2>
+            <div class="content">
+              <p>The movement is very similar to benchpressing with a barbell, however, the weight is brought down to the chest at a lower point.</p>
+              <p>Hold two dumbbells and lay down on a bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>
             </div>
-            <div id="exercise-card" data-exerciseid="206" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Incline Dumbbell Flye</h2>
-              <div class="content">
-                <p>Use inclined bench. Hold dumbbells straight out to your sides, elbows slightly bent. Bring arms together above you, keeping angle of elbows fixed.</p>
-              </div>
+          </div>
+          <div id="exercise-card" data-exerciseid="206" class="w-full p-1">
+            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Incline Dumbbell Flye</h2>
+            <div class="content">
+              <p>Use inclined bench. Hold dumbbells straight out to your sides, elbows slightly bent. Bring arms together above you, keeping angle of elbows fixed.</p>
             </div>
-            <div id="exercise-card" data-exerciseid="122" class="w-full p-1">
-                <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Cable</h2>
-                <div class="content"></div>
-            </div>
-            
-            <button type="button" name="favoriteBtn" id="favoriteBtn-random" class="btn-hover2 mt-3 mr-2 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold">Save <i class="fa-solid fa-heart text-rose-300"></i></button>
-            
-            <button type="button" name="makeCurrentWorkoutBtn" id="makeCurrentWorkoutBtn-random" class="btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold">Try It!</button> -->
-
-          </section>
+          </div>
+          <div id="exercise-card" data-exerciseid="122" class="w-full p-1">
+              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Cable</h2>
+              <div class="content"></div>
+          </div> -->
+        </section>
 
       </section>
+      <!-- Workout Page Main Section -->
 
+      <!-- Additional Buttons Section -->
       <!-- generate workout section -->
-      <section class="mx-12 mb-10 rounded-[26px] text-sm text-center">
+      <section id="generate-btns" class="hidden text-center">
+        <button type="button" name="returnbtn" id="returnbtn-random" class="btn-hover3 mb-2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
+                  
+        <button type="button" name="favoriteBtn" id="favoriteBtn-random" class="btn-hover3 mt-3 mx-3 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold">Save <i class="fa-solid fa-heart text-rose-300"></i></button>
+          
+        <button type="button" name="tryItBtn" id="tryItBtn-random" class="btn-hover3 mt-2 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold">Try It!</button>
+      </section>
+
+      <!-- individual muscles section -->
+      <section id="individual-btns" class="hidden text-center">
+        <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
+      </section>
+      <!-- Additional Buttons Section -->
+
+      <!-- Generate Workout Section -->
+      <section class="mx-12 mt-5 mb-10 rounded-[26px] text-sm text-center">
         <!-- drop down -->
         <div class="mb-4">
           <select id="workout-list" class="w-5/6 rounded-[26px] text-[#142429]">
-            <option value="">Select a Training Day</option>
+            <option value="Select a Training Day">Select a Training Day</option>
             <option value="arms">Arms</option>
             <option value="legs">Legs</option>
             <option value="chest">Chest</option>
@@ -176,7 +191,8 @@
           Generate Workout
         </button>
       </section>
-      <!-- Workout Page Main Section -->
+      <!-- Generate Workout Section -->
+  
 
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">

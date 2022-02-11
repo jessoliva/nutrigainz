@@ -1,13 +1,31 @@
 //VARIABLES
 //workout tab variables
 const workoutTabEl = document.getElementById("workout-tab");
+
+// reference main container for workout tab
 const archiveWrapperEl = document.getElementById("archive-wrapper");
+
+// reference muscle group container
 const muscleGroupWrapperEl = document.getElementById("muscle-group-wrapper");
+
+// reference individual muscle list container
 const individualMusclesWrapperEl = document.getElementById("individual-muscle-wrapper");
+// reference addntl buttons section for individual muscles container
+var indContainerBtns = document.getElementById('individual-btns');
+
+// reference exercises container
 const exerciseListWrapperEl = document.getElementById("exercise-wrapper");
+
+// reference generate workout container
 const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapper");
+// reference addntl buttons section for generate workout container
+var genContainerBtns = document.getElementById('generate-btns');
+// reference generate workout btn
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
+// reference workout list container
 const workoutDropdownEl = document.getElementById("workout-list");
+
+// arrays
 const muscleGroup = ["Arms", "Legs", "Chest", "Back", "Core"];
 var muscleGroupArray = [];
 var muscleGroupCardArray = [];
@@ -91,6 +109,10 @@ function muscleGroupCards() {
 
 //load individual muscles from muscle group info btn
 var loadIndMuscles = function () {
+
+  // display additional buttons for individual muscles section
+  indContainerBtns.classList.remove('hidden');
+  
   //clear values
   muscleGroupWrapperEl.innerHTML = "";
   exerciseListWrapperEl.innerHTML = "";
@@ -105,14 +127,14 @@ var loadIndMuscles = function () {
   // muscleListTitle.textContent = "Select a Muscle for Exercise List"
   // muscleList.appendChild(muscleListTitle);
 
-  // create return button
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-ind-muscles";
-  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
-  returnBtn.textContent = "Back";
-  individualMusclesWrapperEl.appendChild(returnBtn);
+  // // create return button
+  // var returnBtn = document.createElement("button");
+  // returnBtn.setAttribute("type", "button");
+  // returnBtn.setAttribute("name", "returnbtn");
+  // returnBtn.id = "returnbtn-ind-muscles";
+  // returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
+  // returnBtn.textContent = "Back";
+  // individualMusclesWrapperEl.appendChild(returnBtn);
 
   //loop through array to generate individual muscle cards
   for (var i = 0; i < muscleGroupArray.length; i++) {
@@ -262,11 +284,16 @@ var displayExerciseList = function (data) {
 
 //send user input from dropdown to fetch muscle group
 var randomizeWorkout = function () {
-  chosenDay = [];
-  //get information from dropdown and save as global variable
-  chosenDay = workoutDropdownEl.options[workoutDropdownEl.selectedIndex].value;
+  // display container for generated workout
+  generateWorkoutWrapperEl.classList.remove('hidden');
 
-  console.log(chosenDay);
+  // reset chosen day
+  chosenDay = [];
+  // reset day title
+  $('#workout-day').text('');
+
+  // get information from dropdown and save as global variable
+  chosenDay = workoutDropdownEl.options[workoutDropdownEl.selectedIndex].value;
 
   if (chosenDay === "arms") {
     fetchArms();
@@ -284,10 +311,22 @@ var randomizeWorkout = function () {
   }
 };
 
-//generates and displays randomized workout list of six exercises from a muscle group
 var displayRandomWorkout = function (data) {
-  // display container for generated workout
-  generateWorkoutWrapperEl.classList.remove('hidden');
+
+  // display workout day title
+  $('#day-title').removeClass('hidden');
+
+  // set text content of workout day selected
+  var workoutDay = workoutDropdownEl.options[workoutDropdownEl.selectedIndex].textContent;
+  // set workout day title
+  $('#workout-day').text(workoutDay);
+
+  // reset the form 
+  workoutDropdownEl.selectedIndex = 0;
+
+  // display additional buttons for generate workout section
+  genContainerBtns.classList.remove('hidden');
+
   //clear values
   muscleGroupWrapperEl.innerHTML = "";
   exerciseListWrapperEl.innerHTML = "";
@@ -368,13 +407,13 @@ var displayRandomWorkout = function (data) {
 
   console.log(finalRandomArray);
 
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-random";
-  returnBtn.classList = 'btn-hover2 mb-3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
-  returnBtn.textContent = "Back";
-  generateWorkoutWrapperEl.appendChild(returnBtn);
+  // var returnBtn = document.createElement("button");
+  // returnBtn.setAttribute("type", "button");
+  // returnBtn.setAttribute("name", "returnbtn");
+  // returnBtn.id = "returnbtn-random";
+  // returnBtn.classList = 'btn-hover2 mb-3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
+  // returnBtn.textContent = "Back";
+  // generateWorkoutWrapperEl.appendChild(returnBtn);
 
   //loop through randomized array to generate exercise list
   for (var i = 0; i < finalRandomArray.length; i++) {
@@ -427,26 +466,45 @@ var displayRandomWorkout = function (data) {
     });
   };
 
-  // save workout button and send to saved page
-  var favoriteBtn = document.createElement("button");
-  favoriteBtn.setAttribute("type", "button");
-  favoriteBtn.setAttribute("name", "favoriteBtn");
-  favoriteBtn.id = "favoriteBtn-random";
-  favoriteBtn.classList = 'btn-hover2 mt-3 mr-2 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold';
-  favoriteBtn.innerHTML = 'Save <i class="fa-solid fa-heart text-rose-300"></i>'
-  // favoriteBtn.textContent = "Save Workout";
-  generateWorkoutWrapperEl.appendChild(favoriteBtn);
+  // // save workout button and send to saved page
+  // var favoriteBtn = document.createElement("button");
+  // favoriteBtn.setAttribute("type", "button");
+  // favoriteBtn.setAttribute("name", "favoriteBtn");
+  // favoriteBtn.id = "favoriteBtn-random";
+  // favoriteBtn.classList = 'btn-hover2 mt-3 mr-2 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold';
+  // favoriteBtn.innerHTML = 'Save <i class="fa-solid fa-heart text-rose-300"></i>'
+  // // favoriteBtn.textContent = "Save Workout";
+  // generateWorkoutWrapperEl.appendChild(favoriteBtn);
 
   // try workout button and send to home page
-  var makeCurrentWorkoutBtn = document.createElement("button");
-  makeCurrentWorkoutBtn.setAttribute("type", "button");
-  makeCurrentWorkoutBtn.setAttribute("name", "makeCurrentWorkoutBtn");
-  makeCurrentWorkoutBtn.id = "makeCurrentWorkoutBtn-random";
-  makeCurrentWorkoutBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
-  makeCurrentWorkoutBtn.textContent = "Try It!";
-  generateWorkoutWrapperEl.appendChild(makeCurrentWorkoutBtn);
+  // append to global button
+  // makeCurrentWorkoutBtn.setAttribute("type", "button");
+  // makeCurrentWorkoutBtn.setAttribute("name", "makeCurrentWorkoutBtn");
+  // makeCurrentWorkoutBtn.setAttribute('onclick', )
+  // makeCurrentWorkoutBtn.id = "makeCurrentWorkoutBtn-random";
+  // makeCurrentWorkoutBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
+  // makeCurrentWorkoutBtn.textContent = "Try It!";
+  // generateWorkoutWrapperEl.appendChild(makeCurrentWorkoutBtn);
 };
 
+// // ('#makeCurrentWorkoutBtn-random').onclick(tryIt(finalRandomArray));
+// tryBtn.setAttribute('type', 'button');
+// tryBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
+// tryBtn.textContent = 'Tri It!'
+// tryBtn.addEventListener('click', function () {
+//   tryIt(finalRandomArray)
+// }, false)
+// // if creating button within the 
+
+// generateWorkoutWrapperEl.append(tryBtn)
+// // makeCurrentWorkoutBtn.addEventListener('click', tryIt(finalRandomArray));
+
+// function tryIt(finalArray) {
+//   console.log('this array is ', finalArray);
+
+//   // get container from index.html document with getElementById and display array
+
+// };
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {
@@ -612,14 +670,30 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
 });
 
 //listener for back button on randomized workout and individual muscles
-document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
-  if (
-    event.target.matches("#returnbtn-ind-muscles") ||
-    event.target.matches("#returnbtn-random")
-  ) {
-    muscleGroupCards(muscleGroupCardArray);
-    generateWorkoutWrapperEl.classList.add('hidden');
-  }
+// document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+//   if (
+//     event.target.matches("#returnbtn-ind-muscles") ||
+//     event.target.matches("#returnbtn-random")
+//   ) {
+//     muscleGroupCards(muscleGroupCardArray);
+//     generateWorkoutWrapperEl.classList.add('hidden');
+//   }
+// });
+
+// return btn for individual muscles section
+document.getElementById('returnbtn-ind-muscles').addEventListener('click', function() {
+  muscleGroupCards(muscleGroupCardArray);
+  // generateWorkoutWrapperEl.classList.add('hidden');
+  indContainerBtns.classList.add('hidden');
+
+});
+
+// return btn for generate workout section
+document.getElementById('returnbtn-random').addEventListener('click', function() {
+  muscleGroupCards(muscleGroupCardArray);
+  generateWorkoutWrapperEl.classList.add('hidden');
+  genContainerBtns.classList.add('hidden');
+
 });
 
 loadArchive();
