@@ -128,7 +128,7 @@ var loadIndMuscles = function () {
     // muscle card container that hold image and heading
     var indMuscleCard = document.createElement("div");
     indMuscleCard.id = muscleGroupArray[i].name;
-    indMuscleCard.classList = "ind-muscle-card p-3 m-3 flex flex-wrap justify-center max-w-xs bg-primary rounded-[26px] lg:flex-1 lg:justify-center";
+    indMuscleCard.classList = "ind-muscle-card p-3 m-3 flex flex-wrap justify-center max-w-[18rem] bg-primary rounded-[26px] lg:flex-1 lg:justify-center";
     //assigns muscle id to be the same as the muscle id in the api
     indMuscleCard.setAttribute("data-muscleID", muscleGroupArray[i].id);
 
