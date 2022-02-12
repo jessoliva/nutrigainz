@@ -435,12 +435,14 @@ var displayRandomWorkout = function (data) {
   };
 };
 
-// reference save button
-const saveBtn = document.getElementById('saveBtn-random');
 // reference modal container
 const modalEl = document.getElementById('generate-modal');
+// reference save button
+const saveBtn = document.getElementById('saveBtn-random');
+// reference close button
+const closeBtn = document.getElementById('close-modal');
 
-// add event listener to call function with an argument!
+// display modal
 saveBtn.addEventListener('click', function() {
 
   if (finalRandomArray === null) {
@@ -453,8 +455,18 @@ saveBtn.addEventListener('click', function() {
 
 }, false);
 
+// close modal
+closeBtn.addEventListener('click', function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  modalEl.classList.add('hidden');
+})
+
+// reference save name button for modal
 const saveNameBtn = document.getElementById('save-name');
 
+// save workout with name 
 saveNameBtn.addEventListener('click', function(event) {
   // prevent page from refreshing
   event.preventDefault();
