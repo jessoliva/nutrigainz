@@ -8,6 +8,8 @@ function loadWorkout() {
     let savedWorkout = localStorage.getItem('Workouts');
     // convert it to array
     savedWorkout = JSON.parse(savedWorkout);
+
+    console.log(savedWorkout);
   
     // if there are no saved workouts, do nothing
     if (savedWorkout === null) {
@@ -17,6 +19,16 @@ function loadWorkout() {
     else {
       userWorkouts = savedWorkout;
     }
-    console.log(userWorkouts);
 }
 loadWorkout();
+
+// display saved workouts
+function displayWorkouts() {
+
+    // loop through userWorkouts array
+    for (i = 0; i < userWorkouts.length; i++) {
+        console.log(userWorkouts[i].name)
+    }
+
+}
+displayWorkouts();

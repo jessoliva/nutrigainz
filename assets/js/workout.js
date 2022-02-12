@@ -289,7 +289,6 @@ var randomizeWorkout = function () {
   }
 };
 
-// THE ISSUE IS WITH DISPLAYING THE ARRAY AGAIN!!! HAVE TO REMOVE THE FIRST ONE
 // display generated workout
 var displayRandomWorkout = function (data) {
   // display workout day title
@@ -437,7 +436,9 @@ var displayRandomWorkout = function (data) {
 };
 
 // reference save button
-let saveBtn = document.getElementById('saveBtn-random');
+const saveBtn = document.getElementById('saveBtn-random');
+// reference modal container
+const modalEl = document.getElementById('generate-modal');
 
 // add event listener to call function with an argument!
 saveBtn.addEventListener('click', function() {
@@ -446,33 +447,42 @@ saveBtn.addEventListener('click', function() {
     return;
   }
   else {
-    saveWorkout(finalRandomArray);
+    // display modal
+    modalEl.classList.remove('hidden');
   }
 
 }, false);
 
+const saveNameBtn = document.getElementById('save-name');
+
+saveNameBtn.addEventListener('click', function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  // if final random array exists then save the workout
+  if (finalRandomArray === null) {
+    return;
+  }
+  else {
+    saveWorkout(finalRandomArray);
+  }
+
+  // hide modal
+  modalEl.classList.add('hidden');
+
+});
+
 // empty array that will hold saved workouts 
 let userWorkouts = [];
 
-// save workout to local storage
-function saveWorkout(finalArray) {
-
-  // push saved workout into array
-  userWorkouts.push(finalArray);
-
-  // save array holding workout into local storage
-  localStorage.setItem('Workouts', JSON.stringify(userWorkouts));
-
-  console.log('array is ', finalArray);
-};
-
 // load scores from local storage, if any, to save into savedWorkouts array
 function loadWorkout() {
-
   // load saved workouts
   let savedWorkout = localStorage.getItem('Workouts');
   // convert it to array
   savedWorkout = JSON.parse(savedWorkout);
+
+  console.log('savedworkouts is ', savedWorkout);
 
   // if there are no saved workouts, do nothing
   if (savedWorkout === null) {
@@ -480,11 +490,41 @@ function loadWorkout() {
   }
   // else there are saved workouts, add them to the userWorkouts = []; empty array
   else {
+    // push savedworkout into empty array
     userWorkouts = savedWorkout;
   }
-  console.log(userWorkouts);
+
+  console.log('userworkouts is ', userWorkouts);
 }
 loadWorkout();
+
+// save workout to local storage
+function saveWorkout(finalArray) {
+  // get user input for workout name
+  const workoutInput = document.getElementById('workout-name');
+  let workoutName = workoutInput.value;
+
+  console.log('userworkouts in savedWorkout is ', userWorkouts)
+
+  // if a name is input, then save the workout
+  if (workoutName.length > 0) {
+    // push name and finalArray as object into userWorkouts
+    userWorkouts.push ({
+      'name': workoutName, 
+      'workout': finalArray
+    });
+  }
+  else {
+    alert('enter valid name!');
+  }
+
+  // save array holding workout into local storage
+  localStorage.setItem('Workouts', JSON.stringify(userWorkouts));
+
+  // reset input value
+  workoutInput.value = '';
+
+};
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {

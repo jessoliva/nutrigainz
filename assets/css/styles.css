@@ -19,7 +19,6 @@ body {
 }
 /* UNIVERSAL STYLES END */
 
-
 /* NAVIGATION AND MAIN BUTTONS STYLES START */
 .btn-hover:hover {
   font-weight: bold;
@@ -67,13 +66,9 @@ body {
 }
 /* NAVIGATION AND MAIN BUTTONS STYLES END */
 
-
 /* MAIN STYLES START */
 
 /* MAIN STYLES END */
-
-
-
 
 /* WORKOUT SECTION STYLES */
 /* drop down styles */
@@ -90,7 +85,8 @@ select {
 
 /* images styles */
 .muscle-img {
-  filter: invert(21%) sepia(63%) saturate(346%) hue-rotate(147deg) brightness(94%) contrast(87%);
+  filter: invert(21%) sepia(63%) saturate(346%) hue-rotate(147deg)
+    brightness(94%) contrast(87%);
 }
 
 /* generate workout */
@@ -111,13 +107,14 @@ select {
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.active,
+.collapsible:hover {
   font-weight: bold;
   background-color: #bef264;
 }
 
 .collapsible:after {
-  content: '\002B';
+  content: "\002B";
   color: white;
   font-weight: bold;
   float: right;
@@ -136,16 +133,26 @@ select {
   background-color: #f1f1f1;
 }
 /* makes exercise collapsibles work */
-/* WORKOUT SECTION STYLES END */
 
+/* modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(14, 13, 27, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+/* WORKOUT SECTION STYLES END */
 
 /* SAVED STYLES START */
 
 /* SAVED STYLES END */
 
-
 /* RECIPE STYLES START */
 
 /* RECIPE STYLES END */
-
-

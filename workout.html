@@ -14,7 +14,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     /> -->
-    <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/7733a9cf21.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- google fonts link -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap"
@@ -29,9 +32,7 @@
   </head>
 
   <body class="bg-gradient-to-r from-primary to-[#1B3137] text-white">
-
     <main id="main-sxn" class="min-h-screen flex flex-col">
-
       <!-- Logo -->
       <section class="flex items-center justify-center mt-6 mb-2">
         <img
@@ -43,10 +44,15 @@
       <!-- Logo -->
 
       <!-- Workout Page Main Section -->
-      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-5 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]">
-
+      <section
+        id="archive-wrapper"
+        class="scroll mx-12 mt-4 mb-5 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]"
+      >
         <!-- body days section -->
-        <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
+        <section
+          id="muscle-group-wrapper"
+          class="w-full flex flex-wrap flex-grow space-y-11 justify-center"
+        >
           <!-- <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
             <img src="./assets/images/arms.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
             <h2 class="px-3 font-semibold text-xl">Arm Day</h2>
@@ -79,7 +85,10 @@
         </section>
 
         <!-- individual muscles for body days section -->
-        <section id="individual-muscle-wrapper" class="scroll flex flex-wrap justify-center">
+        <section
+          id="individual-muscle-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
           <!-- <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
 
           <div id="muscles">
@@ -92,7 +101,10 @@
         </section>
 
         <!-- exercises for individual muscles section -->
-        <section id="exercise-wrapper" class="scroll flex flex-wrap justify-center">
+        <section
+          id="exercise-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
           <!-- <div id="307" class="individual-exercise w-11/12">
             <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Bear Walk</button>
             <div class="content">
@@ -110,10 +122,13 @@
         </section>
 
         <!-- generate workout section -->
-        <section id="generate-workout-wrapper" class="scroll flex flex-wrap justify-center">
-
-          <h2 id="day-title" class="hidden pb-3 text-lg font-semibold"><span id="workout-day" class="text-tertiary"></span> Day Workout</h2>
-
+        <section
+          id="generate-workout-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
+          <h2 id="day-title" class="hidden pb-3 text-lg font-semibold">
+            <span id="workout-day" class="text-tertiary"></span> Day Workout
+          </h2>
           <!-- <div id="exercise-card" data-exerciseid="146" class="w-full p-1">
             <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Dumbbells, Decline Bench</h2>
             <div class="content">
@@ -150,25 +165,63 @@
               <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Cable</h2>
               <div class="content"></div>
           </div> -->
-
         </section>
-
       </section>
       <!-- Workout Page Main Section -->
+
+      <!-- modal for generate workout section -->
+      <div id="generate-modal" class="hidden modal flex items-center">
+        <!-- modal info -->
+        <div class="modal-info w-10/12 m-auto p-4 bg-tertiary rounded-[26px]">
+          <form id="user-form" class="flex justify-center items-center">
+            <input name="workout-name" id="workout-name" type="text" autofocus="true" placeholder="Name this workout!" class="form-input w-5/6 mr-2 rounded-[26px] text-center text-primary font-semibold"/>
+
+            <button id="save-name" type="submit" class="px-[10px] py-[6px] btn bg-primary rounded-full font-semibold"><i class="fa-solid fa-heart text-lg text-rose-300"></i></button>
+          </form>
+        </div>
+      </div>
 
       <!-- Additional Buttons Section -->
       <!-- generate workout section -->
       <section id="generate-btns" class="hidden text-center">
-        <button type="button" name="returnbtn" id="returnbtn-random" class="btn-hover3 mb-2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
-                  
-        <button type="button" name="favoriteBtn" id="saveBtn-random" class="btn-hover3 mt-3 mx-3 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold">Save <i class="fa-solid fa-heart text-rose-300"></i></button>
-          
-        <button type="button" name="tryItBtn" id="tryItBtn-random" class="btn-hover3 mt-2 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold">Try It!</button>
+        <button
+          type="button"
+          name="returnbtn"
+          id="returnbtn-random"
+          class="btn-hover3 mb-2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold"
+        >
+          Back
+        </button>
+
+        <button
+          type="button"
+          name="favoriteBtn"
+          id="saveBtn-random"
+          class="btn-hover3 mt-3 mx-3 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold"
+        >
+          Save <i class="fa-solid fa-heart text-rose-300"></i>
+        </button>
+
+        <button
+          type="button"
+          name="tryItBtn"
+          id="tryItBtn-random"
+          class="btn-hover3 mt-2 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold"
+        >
+          Try It!
+        </button>
       </section>
 
       <!-- individual muscles section -->
       <section id="individual-btns" class="hidden text-center">
-        <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
+        <button
+          type="button"
+          name="returnbtn"
+          id="returnbtn-ind-muscles"
+          class="btn-hover3 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold"
+        >
+          Back
+        </button>
       </section>
       <!-- Additional Buttons Section -->
 
@@ -187,20 +240,23 @@
         </div>
 
         <!-- generate workout button -->
-        <button id="generate-workout-btn" class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold">
+        <button
+          id="generate-workout-btn"
+          class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold"
+        >
           Generate Workout
         </button>
       </section>
       <!-- Generate Workout Section -->
-  
+
       <!-- Navigation Section -->
       <nav class="flex justify-around bg-secondary text-center text-4xl">
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
+          <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
@@ -208,11 +264,10 @@
         </button>
 
         <button class="btn-hover w-16 h-16 rounded-full">
-          <a href="saved.html"><i class="fas fa-list"></i></a>            
+          <a href="saved.html"><i class="fas fa-list"></i></a>
         </button>
       </nav>
       <!-- Navigation Section -->
-
     </main>
 
     <!-- jQuery link -->
