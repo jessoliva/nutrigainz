@@ -87,7 +87,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //additional div 1
         var div1 = document.createElement("div");
-        div1.classList = "basis-3/12 flex-col self-center";
+        div1.classList = "basis-3/12 flex-col self-center lg:flex-wrap lg:flex-row";
 
         //add thumbnail for each recipe
         var thumbnailEl = document.createElement("img");
@@ -136,7 +136,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //add heart icon to each container
         var heartIconEl = document.createElement("i");
-        heartIconEl.classList = "far fa-heart";
+        heartIconEl.classList = "far fa-heart lg:text-3xl";
         heartIconEl.id = "heart-icon"
 
         //append recipEl

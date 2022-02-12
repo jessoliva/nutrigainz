@@ -80,7 +80,7 @@ function muscleGroupCards() {
   for (i = 0; i < muscleGroup.length; i++) {
     // create muscle group card for each muscle group
     var muscleGroupCard = document.createElement("div");
-    muscleGroupCard.classList = "w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]";
+    muscleGroupCard.classList = "w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px] lg:w-2/6 lg:m-10";
     muscleGroupCard.id = muscleGroup[i] + "-group";
 
     // create image element
@@ -93,7 +93,7 @@ function muscleGroupCards() {
 
     // create h2 element
     var muscleGroupCardName = document.createElement("h2");
-    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl no-pointer";
+    muscleGroupCardName.classList = "card-title px-3 font-semibold text-xl no-pointer ";
     muscleGroupCardName.textContent = muscleGroup[i] + ' Day';
 
     // create info element
@@ -121,14 +121,14 @@ var loadIndMuscles = function () {
 
   var muscleList = document.createElement("div");
   muscleList.id = "muscles";
-  muscleList.classList = "scroll";
+  muscleList.classList = "scroll lg:flex lg:flex-row lg:flex-wrap ";
 
   //loop through array to generate individual muscle cards
   for (var i = 0; i < muscleGroupArray.length; i++) {
     // muscle card container that hold image and heading
     var indMuscleCard = document.createElement("div");
     indMuscleCard.id = muscleGroupArray[i].name;
-    indMuscleCard.classList = "ind-muscle-card p-3 m-3 flex flex-wrap justify-center  bg-primary rounded-[26px]";
+    indMuscleCard.classList = "ind-muscle-card p-3 m-3 flex flex-wrap justify-center max-w-xs bg-primary rounded-[26px] lg:flex-1 lg:justify-center";
     //assigns muscle id to be the same as the muscle id in the api
     indMuscleCard.setAttribute("data-muscleID", muscleGroupArray[i].id);
 
