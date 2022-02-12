@@ -20,7 +20,6 @@ body {
 /* UNIVERSAL STYLES END */
 
 
-
 /* NAVIGATION AND MAIN BUTTONS STYLES START */
 .btn-hover:hover {
   font-weight: bold;
@@ -69,8 +68,6 @@ body {
 /* NAVIGATION AND MAIN BUTTONS STYLES END */
 
 
-
-
 /* MAIN STYLES START */
 
 /* MAIN STYLES END */
@@ -100,22 +97,7 @@ select {
 .fa-heart {
   color: pink;
 }
-/* WORKOUT SECTION STYLES END */
 
-
-
-/* SAVED STYLES START */
-
-/* SAVED STYLES END */
-
-
-
-/* RECIPE STYLES START */
-
-/* RECIPE STYLES END */
-
-
-/* REVIEW */
 /* makes exercise collapsibles work */
 .collapsible {
   background-color: #bef264;
@@ -153,4 +135,17 @@ select {
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
 }
-/* ^^^makes exercise collapsibles work */
+/* makes exercise collapsibles work */
+/* WORKOUT SECTION STYLES END */
+
+
+/* SAVED STYLES START */
+
+/* SAVED STYLES END */
+
+
+/* RECIPE STYLES START */
+
+/* RECIPE STYLES END */
+
+

@@ -198,15 +198,6 @@ var displayExerciseList = function (data) {
   exerciseListWrapperEl.innerHTML = "";
   individualMusclesWrapperEl.innerHTML = "";
 
-  // generate back button
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-exercise";
-  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
-  returnBtn.textContent = "Back";
-  exerciseListWrapperEl.appendChild(returnBtn);
-
   // loop through array to generate individual exercise cards
   for (var i = 0; i < data.results.length; i++) {
     // container holding individual exercise
@@ -450,9 +441,17 @@ let saveBtn = document.getElementById('saveBtn-random');
 
 // add event listener to call function with an argument!
 saveBtn.addEventListener('click', function() {
-  saveWorkout(finalRandomArray);
+
+  if (finalRandomArray === null) {
+    return;
+  }
+  else {
+    saveWorkout(finalRandomArray);
+  }
+
 }, false);
 
+// empty array that will hold saved workouts 
 let userWorkouts = [];
 
 // save workout to local storage
@@ -486,26 +485,6 @@ function loadWorkout() {
   console.log(userWorkouts);
 }
 loadWorkout();
-
-// // DYNAMICALLY CREATED BUTTON
-// let tryBtn = document.createElement('button');
-// tryBtn.setAttribute('type', 'button');
-// tryBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
-// tryBtn.textContent = 'Tri It!'
-// genContainerBtns.append(tryBtn);
-
-// tryBtn.addEventListener('click', function () {
-//   tryIt(finalRandomArray)
-// }, false)
-// // if creating button within the 
-
-// function tryIt(finalArray) {
-//   console.log('this array is ', finalArray);
-
-//   // get container from index.html document with getElementById and display array
-// };
-
-
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {
@@ -585,7 +564,7 @@ async function fetchCore() {
 
 
 //EVENT LISTENERS
-//TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
+//TO DO:  add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
 
 // generate workout function
 generateWorkoutBtn.addEventListener("click", randomizeWorkout);
