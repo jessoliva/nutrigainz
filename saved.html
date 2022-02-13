@@ -19,6 +19,14 @@
     <!-- logo link-->
     <link rel = "icon" href = "./assets/images/favicon.ico" type = "x-icon">
     <style type="text/tailwindcss">
+      .logo {
+        @apply flex items-center justify-center mt-6 mb-2;
+      }
+
+      .logo-lg {
+        @apply lg:justify-start lg:mt-10 lg:ml-8;
+      }
+
       .navbar {
         @apply flex justify-around bg-secondary text-center text-4xl;
       }
@@ -39,7 +47,7 @@
 
     <main class="min-h-screen flex flex-col">
       <!-- Logo -->
-      <section class="flex items-center justify-center mt-6 mb-2 lg:justify-start lg:mt-10 lg:ml-8">
+      <section class="logo logo-lg">
         <img class="lg:h-28" src="./assets/images/nutrigainz.svg" alt="Nutrigainz logo" height="70"/>
       </section>
       
