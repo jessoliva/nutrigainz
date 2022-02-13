@@ -22,8 +22,16 @@ const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapp
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
 // reference addntl buttons section for generate workout container
 var genContainerBtns = document.getElementById('generate-btns');
-// modal for ingredients 
+// reference modal for ingredients 
 const modalDayEl = document.getElementById("day-modal");
+// reference modal container
+const modalEl = document.getElementById('generate-modal');
+// reference save button to display modal
+const saveBtn = document.getElementById('saveBtn-random');
+// reference close button
+const closeBtn = document.getElementById('close-modal');
+// reference save name button to save workout
+const saveNameBtn = document.getElementById('save-name');
 
 // reference workout list container
 const workoutDropdownEl = document.getElementById("workout-list");
@@ -35,7 +43,6 @@ var muscleGroupCardArray = [];
 var randomWorkoutArray = [];
 var finalRandomArray = [];
 var chosenDay = [];
-
 
 //FUNCTIONS
 var reset = function () {
@@ -286,9 +293,10 @@ var randomizeWorkout = function () {
   } else if (chosenDay === "core") {
     fetchCore();
   } else {
-
+    // if no training day is selected, alert them with modal
     modalDayEl.classList.remove('hidden');
 
+    // hide modal again
     setTimeout(function() {
       modalDayEl.classList.add('hidden');
     }, 3000);
@@ -441,13 +449,6 @@ var displayRandomWorkout = function (data) {
   };
 };
 
-// reference modal container
-const modalEl = document.getElementById('generate-modal');
-// reference save button
-const saveBtn = document.getElementById('saveBtn-random');
-// reference close button
-const closeBtn = document.getElementById('close-modal');
-
 // display modal
 saveBtn.addEventListener('click', function() {
 
@@ -468,9 +469,6 @@ closeBtn.addEventListener('click', function(event) {
 
   modalEl.classList.add('hidden');
 })
-
-// reference save name button for modal
-const saveNameBtn = document.getElementById('save-name');
 
 // save workout with name 
 saveNameBtn.addEventListener('click', function(event) {
@@ -624,10 +622,6 @@ async function fetchCore() {
   ]);
   displayRandomWorkout(data);
 };
-
-
-//EVENT LISTENERS
-//TO DO:  add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
 
 // generate workout function
 generateWorkoutBtn.addEventListener("click", randomizeWorkout);

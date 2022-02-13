@@ -39,8 +39,6 @@ function displayWorkouts() {
 }
 displayWorkouts();
 
-
-
 // empty array to save loaded recipes to 
 let favoriteRecipes = [];
 
@@ -164,7 +162,6 @@ var displayRecipes = function(loadedRecipes) {
       recipeContainerEl.appendChild(recipeEl);
   }
 };
-
 
 var getRecipes = function() {
   for (i = 0; i < favoriteRecipes.length; i++) {
