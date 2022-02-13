@@ -434,11 +434,11 @@ var displayRandomWorkout = function (data) {
       var content = this.nextElementSibling;
 
       if (
-        content.innerHTML == "" ||
-        content.innerHTML == null ||
-        content.innerHTML == undefined
+        content.textContent == "" ||
+        content.textContent == null ||
+        content.textContent == undefined
       ) {
-        content.innerHTML = "<p>No Details Provided</p>";
+        content.innerHTML = "<p class='p-2 text-primary text-semibold'>No Details Provided</p>";
       }
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
@@ -710,7 +710,6 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
 // return btn for individual muscles section
 document.getElementById('returnbtn-ind-muscles').addEventListener('click', function() {
   muscleGroupCards(muscleGroupCardArray);
-  // generateWorkoutWrapperEl.classList.add('hidden');
   indContainerBtns.classList.add('hidden');
 
 });
@@ -722,5 +721,11 @@ document.getElementById('returnbtn-random').addEventListener('click', function()
   genContainerBtns.classList.add('hidden');
 
 });
+
+// document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+//   if (event.target.matches("#returnbtn-random")) {
+//     console.log(event.target);
+//   }
+// });
 
 loadArchive();

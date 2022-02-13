@@ -1,5 +1,7 @@
 // empty array to save loaded workouts to 
 let userWorkouts = [];
+// reference saved workouts containers
+const workoutContainerEl = document.getElementById('workouts-container');
 
 // load scores from local storage, if any, to save into savedWorkouts array
 function loadWorkout() {
@@ -9,7 +11,7 @@ function loadWorkout() {
     // convert it to array
     savedWorkout = JSON.parse(savedWorkout);
 
-    console.log(savedWorkout);
+    console.log('saved workout is ', savedWorkout);
   
     // if there are no saved workouts, do nothing
     if (savedWorkout === null) {
@@ -26,17 +28,86 @@ loadWorkout();
 function displayWorkouts() {
 
   if (userWorkouts.length === 0) {
-    recipeContainerEl.textContent = "No recipes found.";
+    workoutContainerEl.textContent = "No recipes found.";
     return;
   }
 
-
   // loop through userWorkouts array
   for (i = 0; i < userWorkouts.length; i++) {
-    console.log(userWorkouts[i].name)
-  }
 
-}
+    // container to hold each workout saved
+    const workoutSaved = document.createElement('div');
+    workoutSaved.classList = 'm-2 p-2 flex flex-wrap justify-center text-center border-4 border-primary rounded-[26px] border-white'
+
+    let workoutName = document.createElement("h2");
+    workoutName.classList = 'w-8/12 pt-1 pb-1 mb-2 border-b-2 border-tertiary text-tertiary text-lg font-semibold';
+    workoutName.textContent = userWorkouts[i].name;
+    // append title to container
+    workoutSaved.appendChild(workoutName);
+
+    // append container to workouts saved container
+    workoutContainerEl.appendChild(workoutSaved);
+
+    // save actual workout list into a variable
+    let workoutList = userWorkouts[i].workout;
+
+    // this will be the same as the finalRandomArray
+    for (x = 0; x < workoutList.length; x++) {
+      var exerciseCard = document.createElement("div");
+      exerciseCard.id = "exercise-card";
+      //sets exerciseID to be the same as in the api
+      exerciseCard.setAttribute("data-exerciseID", workoutList[x].id);
+      exerciseCard.classList = 'w-full p-[1px]';
+
+      // title of exercise
+      var exerciseName = document.createElement("h2");
+      exerciseName.id = "exercise-name";
+      exerciseName.innerHTML = workoutList[x].name;
+      exerciseName.classList = "collapsible btn-hover2 bg-primary rounded-[26px] font-semibold";
+
+      // container for exercise description
+      var exerciseDescription = document.createElement("div");
+      exerciseDescription.classList = "content bg-tertiary rounded-[26px]";
+      //
+      // create p for each description
+      var exerciseP = document.createElement('p');
+      exerciseP.classList = 'p-2 text-primary text-semibold';
+      exerciseP.innerHTML = workoutList[x].description;
+      exerciseDescription.appendChild(exerciseP);
+
+      exerciseCard.append(exerciseName, exerciseDescription);
+      workoutSaved.appendChild(exerciseCard);
+    };
+  };
+
+  //function to make exercise collapsibles work
+  var collapseList = document.getElementsByClassName("collapsible");
+  console.log(collapseList.length);
+
+  for (var i = 0; i < collapseList.length; i++) {
+    collapseList[i].addEventListener("click", function (event) {
+
+      this.classList.toggle("active");
+
+      // grabs description container
+      var content = this.nextElementSibling;
+
+      if (
+        content.textContent == "" ||
+        content.textContent == null ||
+        content.textContent == undefined
+      ) {
+        content.innerHTML = "<p class='p-2 text-primary text-semibold'>No Details Provided</p>";
+      }
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  };
+};
 displayWorkouts();
 
 // empty array to save loaded recipes to 
@@ -71,7 +142,7 @@ var displayRecipes = function(loadedRecipes) {
 
       //main container div 
       var recipeEl = document.createElement("div");
-      recipeEl.classList = "my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+      recipeEl.classList = "my-5 p-2 flex justify-center bg-primary rounded-xl shadow-md overflow-hidden";
 
       //additional div 1
       var div1 = document.createElement("div");

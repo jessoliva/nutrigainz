@@ -82,7 +82,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //main container div 
         var recipeEl = document.createElement("div");
-        recipeEl.classList = "my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+        recipeEl.classList = "my-5 p-2 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
 
         //additional div 1
         var div1 = document.createElement("div");

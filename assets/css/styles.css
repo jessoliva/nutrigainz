@@ -66,10 +66,6 @@ body {
 }
 /* NAVIGATION AND MAIN BUTTONS STYLES END */
 
-/* MAIN STYLES START */
-
-/* MAIN STYLES END */
-
 /* WORKOUT SECTION STYLES */
 /* drop down styles */
 select {
@@ -77,11 +73,6 @@ select {
   padding: 10px 40px;
   text-align: center;
 }
-
-/* select:hover {
-  box-shadow: #bef264;
-  transition: all 0.4s ease-in-out;
-} */
 
 /* images styles */
 .muscle-img {
@@ -146,7 +137,6 @@ select {
   background-color: rgba(14, 13, 27, 0.4);
   transition: all 0.3s ease-in-out;
 }
-
 /* WORKOUT SECTION STYLES END */
 
 /* SAVED STYLES START */
