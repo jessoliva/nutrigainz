@@ -39,6 +39,26 @@
       .nav-btn {
         @apply w-16 h-16 rounded-full;
       }
+
+      .recipes-main {
+        @apply  mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]; 
+      }
+
+      .recipes-lg {
+        @apply lg:mx-32 2xl:mx-80
+      }
+      
+      .display-rec {
+        @apply p-3 bg-primary rounded-[20px] text-center text-lg font-semibold;
+      }
+
+      .search-sec {
+        @apply mx-12 mb-10 rounded-[26px] text-sm text-center;
+      }
+
+      .ingredient {
+        @apply mb-4 w-5/6 rounded-[26px] text-center text-[#142429] lg:w-7/12
+      }
     </style>
 
     <title>nutrigainz</title>
@@ -57,11 +77,11 @@
 
       <!-- Recipes Page Main Section -->
       <section
-        class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px] lg:mx-32 2xl:mx-80"
+        class="scroll recipes-main recipes-lg"
       >
         <!-- display recipes -->
         <div>
-          <h2 class="subtitle p-3 bg-primary rounded-[20px] text-center text-lg font-semibold">
+          <h2 class="subtitle display-rec">
             Displaying Recipes For: 
           </br><span id="ingredient-search-term"></span>
           </h2>
@@ -69,7 +89,7 @@
         </div>
       </section>
 
-      <section class="mx-12 mb-10 rounded-[26px] text-sm text-center">
+      <section class="search-sec">
         <!-- search recipes -->
         <div class="card">
           <form id="user-form" class="card-body">
@@ -79,7 +99,7 @@
               type="text"
               autofocus="true"
               placeholder="Enter an Ingredient!"
-              class="form-input mb-4 w-5/6 rounded-[26px] text-center text-[#142429] lg:w-7/12"
+              class="form-input ingredient"
             />
             <button
               type="submit"
