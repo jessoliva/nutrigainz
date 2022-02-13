@@ -38,6 +38,14 @@
       .nav-btn {
         @apply w-16 h-16 rounded-full;
       }
+
+      .saved-sec {
+        @apply  mx-12 mt-4 mb-4 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px];
+      }
+
+      .saved-lg {
+        @apply lg:mx-32 2xl:mx-80;
+      }
     </style>
 
     <title>nutrigainz</title>
@@ -52,12 +60,12 @@
       </section>
       
       <!-- Workout Section -->
-      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-4 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px] lg:mx-32 2xl:mx-80">
+      <section id="archive-wrapper" class="scroll saved-sec saved-lg">
         <h2 class="w-9/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px] font-semibold">Saved Workouts</h2>
       </section> 
       
       <!-- Recipe Section -->
-      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px] lg:mx-32 2xl:mx-80">
+      <section id="archive-wrapper" class="scroll saved-sec saved-lg">
         <h2 class="w-9/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px] font-semibold">Saved Recipes</h2>
         <div></div>
       </section>  
