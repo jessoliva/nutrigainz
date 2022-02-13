@@ -24,6 +24,45 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <!-- logo link-->
     <link rel="icon" href="./assets/images/favicon.ico" type="x-icon" />
+    <style type="text/tailwindcss">
+      .logo {
+        @apply flex items-center justify-center mt-6 mb-2;
+      }
+
+      .logo-lg {
+        @apply lg:justify-start lg:mt-10 lg:ml-8;
+      }
+
+      .workout-main {
+        @apply mx-12 mt-4 mb-5 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px]; 
+      }
+
+      .wk-main-lg {
+        @apply lg:mx-32 2xl:mx-80;
+      }
+
+      .gen-wk-sec {
+        @apply w-5/6 rounded-[26px] text-[#142429] lg:w-7/12;
+      }
+
+      .navbar {
+        @apply flex justify-around bg-secondary text-center text-4xl;
+      }
+
+      .nav-lg {
+        @apply  lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6;
+      }
+      
+      .nav-btn {
+        @apply w-16 h-16 rounded-full;
+      }
+
+
+
+      
+
+      
+    </style>
 
     <title>nutrigainz</title>
   </head>
@@ -33,7 +72,7 @@
     <main class="min-h-screen flex flex-col">
 
       <!-- Logo -->
-      <section class="flex items-center justify-center mt-6 mb-2 lg:justify-start lg:mt-10 lg:ml-8">
+      <section class="logo logo-lg">
         <img class="lg:h-28"
           src="./assets/images/nutrigainz.svg"
           alt="Nutrigainz logo"
@@ -43,7 +82,7 @@
       <!-- Logo -->
 
       <!-- Workout Page Main Section -->
-      <section id="archive-wrapper" class="scroll mx-12 mt-4 mb-5 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px] lg:mx-32 2xl:mx-80">
+      <section id="archive-wrapper" class="scroll workout-main wk-main-lg">
 
         <!-- body days section -->
         <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
@@ -176,7 +215,7 @@
       <section class="mx-12 mt-5 mb-10 rounded-[26px] text-sm text-center">
         <!-- drop down -->
         <div class="mb-4">
-          <select id="workout-list" class="w-5/6 rounded-[26px] text-[#142429] lg:w-7/12">
+          <select id="workout-list" class="gen-wk-sec">
             <option value="Select a Training Day">Select a Training Day</option>
             <option value="arms">Arms</option>
             <option value="legs">Legs</option>
@@ -195,20 +234,20 @@
   
 
       <!-- Navigation Section -->
-      <nav class="flex justify-around bg-secondary text-center text-4xl lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6">
-        <button class="btn-hover w-16 h-16 rounded-full">
+      <nav class="navbar nav-lg">
+        <button class="btn-hover nav-btn">
           <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="recipes.html"><i class="fas fa-carrot"></i></a>
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="saved.html"><i class="fas fa-list"></i></a>            
         </button>
       </nav>

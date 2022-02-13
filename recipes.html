@@ -19,6 +19,20 @@
     <!-- logo link-->
     <link rel = "icon" href = "./assets/images/favicon.ico" type = "x-icon">
 
+    <style type="text/tailwindcss">
+      .navbar {
+        @apply flex justify-around bg-secondary text-center text-4xl;
+      }
+
+      .nav-lg {
+        @apply  lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6;
+      }
+      
+      .nav-btn {
+        @apply w-16 h-16 rounded-full;
+      }
+    </style>
+
     <title>nutrigainz</title>
   </head>
 
@@ -71,24 +85,24 @@
       <!-- Recipes Page Main Section -->
 
       <!-- Navigation Section -->
-      <nav class="flex justify-around bg-secondary text-center text-4xl lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6">
-        <button class="btn-hover w-16 h-16 rounded-full">
+      <nav class="navbar nav-lg">
+        <button class="btn-hover nav-btn">
           <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="recipes.html"><i class="fas fa-carrot"></i></a>
         </button>
 
-        <button class="btn-hover w-16 h-16 rounded-full">
+        <button class="btn-hover nav-btn">
           <a href="saved.html"><i class="fas fa-list"></i></a>            
         </button>
       </nav>
-     <!-- Navigation Section -->
+      <!-- Navigation Section -->
     </main>
 
     
