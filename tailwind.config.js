@@ -6,6 +6,11 @@ tailwind.config = {
     'secondary': '#294851',
     'tertiary' : '#bef264',
     },
+    screens: {
+      'md': '768px',
+      'lg': '1024px',
+      '2xl': '1450px',
+    },
     extend: {},
   },
   plugins: [],
