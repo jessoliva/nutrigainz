@@ -16,10 +16,13 @@ This website is designed to provide the user a way to create randomized workouts
 [Click Here](https://jessoliva.github.io/project-1/) to go to the website.
 
 <p>
-  <img src="./assets/images/weather-screenshot1.jpg" alt="Nutrigainz webpage screenshot"/>
+  <img src="./readme-images/nutrigainz-screenshot.jpg" alt="Nutrigainz webpage screenshot"/>
 </p>
 <p>
-  <img src="./assets/images/weather-screenshot2.jpg" alt="Nutrigainz webpage screenshot"/>
+  <img src="./readme-images/nutrigainz-screenshot1.jpg" alt="Nutrigainz webpage screenshot"/>
+</p>
+<p>
+  <img src="./readme-images/nutrigainz-screenshot2.jpg" alt="Nutrigainz webpage screenshot"/>
 </p>
 
 ## License
