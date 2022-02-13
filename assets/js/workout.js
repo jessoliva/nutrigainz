@@ -202,7 +202,7 @@ var displayExerciseList = function (data) {
   returnBtn.setAttribute("type", "button");
   returnBtn.setAttribute("name", "returnbtn");
   returnBtn.id = "returnbtn-exercise";
-  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold';
+  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold lg:w-full lg:mx-60';
   returnBtn.textContent = "Back";
   exerciseListWrapperEl.appendChild(returnBtn);
 
@@ -211,7 +211,7 @@ var displayExerciseList = function (data) {
     // container holding individual exercise
     var indExerciseWrapper = document.createElement("div");
     indExerciseWrapper.id = data.results[i].id;
-    indExerciseWrapper.classList = "individual-exercise w-11/12";
+    indExerciseWrapper.classList = "individual-exercise w-11/12 lg:w-4/12";
 
     // title for individual exercise
     var exerciseTitle = document.createElement("button");
