@@ -25,13 +25,21 @@ loadWorkout();
 // display saved workouts
 function displayWorkouts() {
 
-    // loop through userWorkouts array
-    for (i = 0; i < userWorkouts.length; i++) {
-        console.log(userWorkouts[i].name)
-    }
+  if (userWorkouts.length === 0) {
+    recipeContainerEl.textContent = "No recipes found.";
+    return;
+  }
+
+
+  // loop through userWorkouts array
+  for (i = 0; i < userWorkouts.length; i++) {
+    console.log(userWorkouts[i].name)
+  }
 
 }
 displayWorkouts();
+
+
 
 // empty array to save loaded recipes to 
 let favoriteRecipes = [];
@@ -43,8 +51,8 @@ var recipeContainerEl = document.querySelector("#recipes-container");
 // display saved recipes
 var displayRecipes = function(loadedRecipes) {
   if (loadedRecipes.length === 0) {
-      recipeContainerEl.textContent = "No recipes found.";
-      return;
+    recipeContainerEl.textContent = "No recipes found.";
+    return;
   }
 
   console.log(loadedRecipes);

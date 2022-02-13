@@ -1,6 +1,8 @@
 var userFormEl = document.querySelector("#user-form")
 var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
+// modal for ingredients 
+const modalEl = document.getElementById("recipe-modal");
 
 var favoriteRecipes = []
 
@@ -53,7 +55,12 @@ var formSubmitHandler = function(event) {
         getRecipes(ingredients);
         ingredientSearchEl.value = "";
     } else {
-        alert("Please enter an ingredient")
+
+        modalEl.classList.remove('hidden');
+
+        setTimeout(function() {
+            modalEl.classList.add('hidden');
+        }, 3000);
     }
     console.log(ingredients);
 }
