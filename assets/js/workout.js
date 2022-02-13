@@ -22,6 +22,8 @@ const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapp
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
 // reference addntl buttons section for generate workout container
 var genContainerBtns = document.getElementById('generate-btns');
+// modal for ingredients 
+const modalDayEl = document.getElementById("day-modal");
 
 // reference workout list container
 const workoutDropdownEl = document.getElementById("workout-list");
@@ -284,8 +286,12 @@ var randomizeWorkout = function () {
   } else if (chosenDay === "core") {
     fetchCore();
   } else {
-    //TO DO: NEEDS TO BE A MODAL
-    alert("Please Select Muscle Group");
+
+    modalDayEl.classList.remove('hidden');
+
+    setTimeout(function() {
+      modalDayEl.classList.add('hidden');
+    }, 3000);
   }
 };
 
@@ -527,7 +533,12 @@ function saveWorkout(finalArray) {
     });
   }
   else {
-    alert('enter valid name!');
+
+    modalEl.classList.remove('hidden');
+
+    setTimeout(function() {
+        modalEl.classList.add('hidden');
+    }, 3000);
   }
 
   // save array holding workout into local storage
