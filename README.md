@@ -1,2 +1,3 @@
 # project-1
-lauren text
+
+John is a contirbutor
