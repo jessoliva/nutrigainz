@@ -1,24 +1,18 @@
 var userFormEl = document.querySelector("#user-form")
 var ingredientSearchEl = document.querySelector("#ingredients");
 var recipeContainerEl = document.querySelector("#recipes-container");
+// modal for ingredients 
+const modalEl = document.getElementById("recipe-modal");
 
+// empty array for fave recipes
 var favoriteRecipes = []
-
 
 var appKey = "&app_key=38100359b40740841a18a00837f9be68"
 var appId = "&app_id=7ac48de2"
 
-//Victoria's API keys
-// var appKey = "&app_key=38100359b40740841a18a00837f9be68"
-// var appId = "&app_id=7ac48de2"
-
-
 var getRecipes = function(ingredients) {
 
     var apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&q=" + ingredients + "&random=true" + appId + appKey;
-
-    //sample url
-    //var apiUrl = "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=7ac48de2&app_key=38100359b40740841a18a00837f9be68"
 
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
@@ -53,7 +47,12 @@ var formSubmitHandler = function(event) {
         getRecipes(ingredients);
         ingredientSearchEl.value = "";
     } else {
-        alert("Please enter an ingredient")
+
+        modalEl.classList.remove('hidden');
+
+        setTimeout(function() {
+            modalEl.classList.add('hidden');
+        }, 3000);
     }
     console.log(ingredients);
 }
@@ -83,7 +82,7 @@ var displayRecipes = function(data, searchTerm) {
 
         //main container div 
         var recipeEl = document.createElement("div");
-        recipeEl.classList = "my-5 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
+        recipeEl.classList = "my-5 p-2 flex justify-center bg-[#223C44] rounded-xl shadow-md overflow-hidden";
 
         //additional div 1
         var div1 = document.createElement("div");
@@ -174,12 +173,6 @@ var displayRecipes = function(data, searchTerm) {
         recipeContainerEl.appendChild(recipeEl);
     }
 };
-
-// //toggle the heart icon on click
-// var toggleHeartIcon = function(event) {
-//     document.getElementById("heart-icon").classList.toggle("far");
-//     document.getElementById("heart-icon").classList.toggle("fas");
-// };
 
 //toggle the heart icon on click
 var toggleHeartIcon = function(event) {

@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- tailwind cdn link -->
-    <!-- <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script> -->
     <!-- tailwind cdn jit link -->
     <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <!-- tailwind js link -->
@@ -15,8 +13,6 @@
     <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
     <!-- google fonts link -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
-    <!-- tailwind css link DOES NOT WORK --> 
-    <!-- <link href="./assets/css/tailwind.tailwindcss" type="text/tailwindcss" /> -->
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css"/>
     <!-- logo link-->
@@ -43,10 +39,10 @@
       .home-page {
         @apply flex flex-col items-center gap-9 m-4
       }
-
+/* 
       .home-desc {
-        @apply pt-3 text-justify lg:mx-60 2xl:text-xl
-      }
+        @apply pt-3 text-justify text-center lg:mx-60 2xl:text-xl
+      } */
       
       .lgscrn-icon {
         @apply 2xl:text-5xl;
@@ -92,29 +88,27 @@
         <div class="home-icon">
           <a href="index.html"><i class="fa-solid fa-house-chimney fa-3x text-tertiary 2xl:text-7xl"></i></a>  
         </div>
-        
 
-        <!-- Workouts Description -->
-        <div class="text-center">
-          <a href="workout.html"><i class="fas fa-dumbbell fa-2x lgscrn-icon"></i></a>
-          <h2 class="home-desc">Go here to view different individual muscles by workout day, and different exercises by individual muscle. To generate a random workout, select a day from the drop down menu. Once the workout is generated, click 'Try It' to display it here or 'Save <i class="fa-solid fa-heart text-rose-300"></i>' to save it.</h2>
+      <!-- Workouts Description -->
+        <div class="flex-colum items-center text-center">
+          <a href="workout.html"><i class="fas fa-dumbbell fa-2x"></i></a>
+          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to view different individual muscles by workout day, and different exercises by individual muscle. To generate a random workout, select a day from the drop down menu. Once the workout is generated, click 'Try It' to display it here or 'Save <i class="fa-solid fa-heart text-rose-300"></i>' to save it.</h2>
         </div>
 
         <!-- Recipes Description -->
-        <div class="text-center">
-          <a href="recipes.html"><i class="fas fa-carrot fa-2x lgscrn-icon"></i></a>
-          <h2 class="home-desc">Go here to search recipes by ingredients! When you input an ingredient or multiple, a list of random recipes will be displayed. If you like a recipe, click the <i class="fa-solid fa-heart text-rose-300"></i> to save it.</h2>
+        <div class="flex-colum items-center text-center">
+          <a href="recipes.html"><i class="fas fa-carrot fa-2x"></i></a>
+          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to search recipes by ingredients! When you input an ingredient or multiple, a list of random recipes will be displayed. If you like a recipe, click the <i class="fa-solid fa-heart text-rose-300"></i> to save it.</h2>
         </div>
 
         <!-- Saved Items Description -->
-        <div class="text-center">
-          <a href="saved.html"><i class="fas fa-list fa-2x lgscrn-icon"></i></a>
-          <h2 class="home-desc">Go here to view your saved workouts and saved recipes! You will be able to view your saved items for later use, or keep them saved at your convenience.</h2>
+        <div class="flex-colum items-center text-center">
+          <a href="saved.html"><i class="fas fa-list fa-2x"></i></a>
+          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to view your saved workouts and saved recipes! You will be able to view your saved items for later use, or keep them saved at your convenience.</h2>
         </div>
       </div>
       </section>  
 
-      
       <!-- Navigation Section -->
       <nav class="navbar nav-lg">
         <button class="nav-btn btn-hover">
@@ -137,9 +131,12 @@
     </main>
 
     <!-- jQuery link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- js link -->
-    <script src="./assets/js/workout.js"></script>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>

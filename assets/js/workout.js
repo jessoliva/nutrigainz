@@ -18,10 +18,21 @@ const exerciseListWrapperEl = document.getElementById("exercise-wrapper");
 
 // reference generate workout container
 const generateWorkoutWrapperEl = document.getElementById("generate-workout-wrapper");
-// reference addntl buttons section for generate workout container
-var genContainerBtns = document.getElementById('generate-btns');
 // reference generate workout btn
 const generateWorkoutBtn = document.getElementById("generate-workout-btn");
+// reference addntl buttons section for generate workout container
+var genContainerBtns = document.getElementById('generate-btns');
+// reference modal for ingredients 
+const modalDayEl = document.getElementById("day-modal");
+// reference modal container
+const modalEl = document.getElementById('generate-modal');
+// reference save button to display modal
+const saveBtn = document.getElementById('saveBtn-random');
+// reference close button
+const closeBtn = document.getElementById('close-modal');
+// reference save name button to save workout
+const saveNameBtn = document.getElementById('save-name');
+
 // reference workout list container
 const workoutDropdownEl = document.getElementById("workout-list");
 
@@ -32,7 +43,6 @@ var muscleGroupCardArray = [];
 var randomWorkoutArray = [];
 var finalRandomArray = [];
 var chosenDay = [];
-
 
 //FUNCTIONS
 var reset = function () {
@@ -197,15 +207,6 @@ var displayExerciseList = function (data) {
   exerciseListWrapperEl.innerHTML = "";
   individualMusclesWrapperEl.innerHTML = "";
 
-  // generate back button
-  var returnBtn = document.createElement("button");
-  returnBtn.setAttribute("type", "button");
-  returnBtn.setAttribute("name", "returnbtn");
-  returnBtn.id = "returnbtn-exercise";
-  returnBtn.classList = 'btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold lg:w-full lg:mx-60';
-  returnBtn.textContent = "Back";
-  exerciseListWrapperEl.appendChild(returnBtn);
-
   // loop through array to generate individual exercise cards
   for (var i = 0; i < data.results.length; i++) {
     // container holding individual exercise
@@ -267,6 +268,9 @@ var displayExerciseList = function (data) {
 
 //send user input from dropdown to fetch muscle group
 var randomizeWorkout = function () {
+  // remove previous divs to prevent displaying multiple workouts!
+  $('div').remove('#exercise-card');
+
   // display container for generated workout
   generateWorkoutWrapperEl.classList.remove('hidden');
 
@@ -289,13 +293,18 @@ var randomizeWorkout = function () {
   } else if (chosenDay === "core") {
     fetchCore();
   } else {
-    //TO DO: NEEDS TO BE A MODAL
-    alert("Please Select Muscle Group");
+    // if no training day is selected, alert them with modal
+    modalDayEl.classList.remove('hidden');
+
+    // hide modal again
+    setTimeout(function() {
+      modalDayEl.classList.add('hidden');
+    }, 3000);
   }
 };
 
+// display generated workout
 var displayRandomWorkout = function (data) {
-
   // display workout day title
   $('#day-title').removeClass('hidden');
 
@@ -425,11 +434,11 @@ var displayRandomWorkout = function (data) {
       var content = this.nextElementSibling;
 
       if (
-        content.innerHTML == "" ||
-        content.innerHTML == null ||
-        content.innerHTML == undefined
+        content.textContent == "" ||
+        content.textContent == null ||
+        content.textContent == undefined
       ) {
-        content.innerHTML = "<p>No Details Provided</p>";
+        content.innerHTML = "<p class='p-2 text-primary text-semibold'>No Details Provided</p>";
       }
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
@@ -440,24 +449,103 @@ var displayRandomWorkout = function (data) {
   };
 };
 
-// // ('#makeCurrentWorkoutBtn-random').onclick(tryIt(finalRandomArray));
-// tryBtn.setAttribute('type', 'button');
-// tryBtn.classList = 'btn-hover2 mt-3 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold';
-// tryBtn.textContent = 'Tri It!'
-// tryBtn.addEventListener('click', function () {
-//   tryIt(finalRandomArray)
-// }, false)
-// // if creating button within the 
+// display modal
+saveBtn.addEventListener('click', function() {
 
-// generateWorkoutWrapperEl.append(tryBtn)
-// // makeCurrentWorkoutBtn.addEventListener('click', tryIt(finalRandomArray));
+  if (finalRandomArray === null) {
+    return;
+  }
+  else {
+    // display modal
+    modalEl.classList.remove('hidden');
+  }
 
-// function tryIt(finalArray) {
-//   console.log('this array is ', finalArray);
+}, false);
 
-//   // get container from index.html document with getElementById and display array
+// close modal
+closeBtn.addEventListener('click', function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
 
-// };
+  modalEl.classList.add('hidden');
+})
+
+// save workout with name 
+saveNameBtn.addEventListener('click', function(event) {
+  // prevent page from refreshing
+  event.preventDefault();
+
+  // if final random array exists then save the workout
+  if (finalRandomArray === null) {
+    return;
+  }
+  else {
+    saveWorkout(finalRandomArray);
+  }
+
+  // hide modal
+  modalEl.classList.add('hidden');
+
+});
+
+// empty array that will hold saved workouts 
+let userWorkouts = [];
+
+// load scores from local storage, if any, to save into savedWorkouts array
+function loadWorkout() {
+  // load saved workouts
+  let savedWorkout = localStorage.getItem('Workouts');
+  // convert it to array
+  savedWorkout = JSON.parse(savedWorkout);
+
+  console.log('savedworkouts is ', savedWorkout);
+
+  // if there are no saved workouts, do nothing
+  if (savedWorkout === null) {
+    return;
+  }
+  // else there are saved workouts, add them to the userWorkouts = []; empty array
+  else {
+    // push savedworkout into empty array
+    userWorkouts = savedWorkout;
+  }
+
+  console.log('userworkouts is ', userWorkouts);
+}
+loadWorkout();
+
+// save workout to local storage
+function saveWorkout(finalArray) {
+  // get user input for workout name
+  const workoutInput = document.getElementById('workout-name');
+  let workoutName = workoutInput.value;
+
+  console.log('userworkouts in savedWorkout is ', userWorkouts)
+
+  // if a name is input, then save the workout
+  if (workoutName.length > 0) {
+    // push name and finalArray as object into userWorkouts
+    userWorkouts.push ({
+      'name': workoutName, 
+      'workout': finalArray
+    });
+  }
+  else {
+
+    modalEl.classList.remove('hidden');
+
+    setTimeout(function() {
+        modalEl.classList.add('hidden');
+    }, 3000);
+  }
+
+  // save array holding workout into local storage
+  localStorage.setItem('Workouts', JSON.stringify(userWorkouts));
+
+  // reset input value
+  workoutInput.value = '';
+
+};
 
 //ASYNC FETCH FUNCTIONS IN ORDER TO GET RANDOMIZED WORKOUTS FOR MUSCLE GROUPS
 async function fetchArms() {
@@ -534,9 +622,6 @@ async function fetchCore() {
   ]);
   displayRandomWorkout(data);
 };
-
-//EVENT LISTENERS
-//TO DO: need to add listener for when workout tab is clicked to call loadArchive. add listener for when favoriteBtn is pressed (also function to save to localStorage). add listener for when makeCurrentWorkoutBtn is pressed (also function to push to home page)
 
 // generate workout function
 generateWorkoutBtn.addEventListener("click", randomizeWorkout);
@@ -625,7 +710,6 @@ document.querySelector("#archive-wrapper").addEventListener("click", function (e
 // return btn for individual muscles section
 document.getElementById('returnbtn-ind-muscles').addEventListener('click', function() {
   muscleGroupCards(muscleGroupCardArray);
-  // generateWorkoutWrapperEl.classList.add('hidden');
   indContainerBtns.classList.add('hidden');
 
 });
@@ -637,5 +721,11 @@ document.getElementById('returnbtn-random').addEventListener('click', function()
   genContainerBtns.classList.add('hidden');
 
 });
+
+// document.querySelector("#archive-wrapper").addEventListener("click", function (event) {
+//   if (event.target.matches("#returnbtn-random")) {
+//     console.log(event.target);
+//   }
+// });
 
 loadArchive();

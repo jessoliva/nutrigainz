@@ -5,23 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- tailwind link -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script>
+    <!-- tailwind cdn jit link -->
+    <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <!-- tailwind js link -->
     <script src="./tailwind.config.js"></script>
-    <!-- font awesome link -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    /> -->
+    <!-- font awesome link --> 
     <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
     <!-- google fonts link -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
     <!-- css link -->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
     <!-- logo link-->
     <link rel="icon" href="./assets/images/favicon.ico" type="x-icon" />
     <style type="text/tailwindcss">
@@ -62,9 +55,7 @@
   </head>
 
   <body class="bg-gradient-to-r from-primary to-[#1B3137] text-white">
-
-    <main class="min-h-screen flex flex-col">
-
+    <main id="main-sxn" class="min-h-screen flex flex-col">
       <!-- Logo -->
       <section class="logo logo-lg">
         <img class="lg:h-28"
@@ -79,124 +70,78 @@
       <section id="archive-wrapper" class="scroll workout-main wk-main-lg">
 
         <!-- body days section -->
-        <section id="muscle-group-wrapper" class="w-full flex flex-wrap flex-grow space-y-11 justify-center">
-          <!-- <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
-            <img src="./assets/images/arms.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
-            <h2 class="px-3 font-semibold text-xl">Arm Day</h2>
-            <i class="fas fa-info-circle"></i>
-          </div>
-  
-          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
-            <img src="./assets/images/legs.svg" width="18%" class="muscle-img"/> 
-            <h2 class="px-3 font-semibold text-xl">Leg Day</h2>
-            <i class="fas fa-info-circle"></i>
-          </div>
-  
-          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
-            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
-            <h2 class="px-3 font-semibold text-xl">Chest Day</h2>
-            <i class="fas fa-info-circle"></i>
-          </div>
-  
-          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
-            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
-            <h2 class="px-3 font-semibold text-xl">Back Day</h2>
-            <i class="fas fa-info-circle"></i>
-          </div>
-  
-          <div class="w-11/12 h-[15%] py-2 flex justify-center items-center bg-primary rounded-[26px]">
-            <img src="./assets/images/chests.svg" width="18%" style="transform: scale(-1,1)" class="muscle-img"/> 
-            <h2 class="px-3 font-semibold text-xl">Core Day</h2>
-            <i class="fas fa-info-circle"></i>
-          </div> -->
+        <section
+          id="muscle-group-wrapper"
+          class="w-full flex flex-wrap flex-grow space-y-11 justify-center"
+        >
         </section>
 
         <!-- individual muscles for body days section -->
-        <section id="individual-muscle-wrapper" class="scroll flex flex-wrap justify-center">
-          <!-- <button type="button" name="returnbtn" id="returnbtn-ind-muscles" class="btn-hover2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
-
-          <div id="muscles">
-            <div id="Anterior deltoid" class="ind-muscle-card p-3 m-3 flex flex-wrap justify-center  bg-primary rounded-[26px]" data-muscleid="2">
-              <h2 class="p-2 px-8 mb-3 bg-secondary rounded-[26px] text-lg text-center">Anterior deltoid</h2>
-              <div id="2" class="muscle-image" style="background-image: url(https://wger.de/static/images/muscles/secondary/muscle-2.svg), url(https://wger.de/static/images/muscles/muscular_system_front.svg); width: 150px; height: 276px; background-size: 150px">
-              </div>
-            </div>
-          </div> -->
+        <section
+          id="individual-muscle-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
         </section>
 
         <!-- exercises for individual muscles section -->
         <section id="exercise-wrapper" class="scroll flex flex-wrap justify-center lg:justify-between">
-          <!-- <div id="307" class="individual-exercise w-11/12">
-            <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Bear Walk</button>
-            <div class="content">
-              <p>-Rest your weight on your palms and the balls of your feet, not dissimilar to normal pushup position</p>
-              <p>-Move by stepping with your R palm and L foot, then your L palm and R foot.&nbsp; Basically, walk like a lumbering bear.</p>
-              <p>-Move as fast as you can.&nbsp; Measure your reps/sets in either distance (i.e. 40 yards) or time (i.e. 45 seconds)</p>
-              <p>-Works your Pecs, Deltoids, Triceps, Traps, Lats, Abs and Lower Back, Hip Flexors, Quads, Glutes and Calves</p>
-            </div>
-          </div>
-
-          <div id="152" class="individual-exercise w-11/12">
-            <button id="exercise-title" class="collapsible my-2 bg-primary rounded-[26px]">Shoulder Press, on Machine</button>
-            <div class="content"></div>
-          </div>-->
         </section>
 
         <!-- generate workout section -->
-        <section id="generate-workout-wrapper" class="scroll flex flex-wrap justify-center">
-          <!-- <div id="undefined-image"></div> -->
-
-          <h2 id="day-title" class="hidden pb-3 text-lg font-semibold"><span id="workout-day" class="text-tertiary"></span> Day Workout</h2>
-
-          <!-- <div id="exercise-card" data-exerciseid="146" class="w-full p-1">
-            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Dumbbells, Decline Bench</h2>
-            <div class="content">
-              <p>The exercise is the same as with a regular bench:</p>
-              <p>Take two dumbbells and lay on a bench, make sure the feet are firmly on the ground and your back is not arched, but has good contact with the bench. The arms are stretched in front of you, about shoulder wide. Bend now the arms a bit and let them down with a half-circle movement to the side. Without changing the angle of the elbow bring them in a fluid movement back up.</p>
-            </div>
-          </div>
-          <div id="exercise-card" data-exerciseid="260" class="w-full p-1">
-            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Decline Pushups</h2>
-            <div class="content">
-              <p>With your feet raised approximately 30cm on a platform, align your shoulders, elbows and hands, then perform regular pushups. This emphasises the clavicular fibers of the pectoralis major.</p>
-            </div>
-          </div>
-          <div id="exercise-card" data-exerciseid="194" class="w-full p-1">
-            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Cross-Bench Dumbbell Pullovers</h2>
-            <div class="content">
-              <p>Grasp a moderately weighted dumbbell so your palms are flat against the underside of the top plates and your thumbs are around the bar. Lie on your back across a flat bench so only your upper back and shoulders are in contact with the bench. Your feet should be set about shoulder-width apart and your head should hang slightly downward. With the dumbbell supported at arm's length directly about your chest, bend your arms about 15 degrees and keep them bent throughout the movement. Slowly lower the dumbbell backward and downward in a semicircle arc to as low a position as is comfortably possible. Raise it slowly back along the same arc to the starting point, and repeat for the required number of repetitions.</p>
-            </div>
-          </div>
-          <div id="exercise-card" data-exerciseid="97" class="w-full p-1">
-            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Benchpress Dumbbells</h2>
-            <div class="content">
-              <p>The movement is very similar to benchpressing with a barbell, however, the weight is brought down to the chest at a lower point.</p>
-              <p>Hold two dumbbells and lay down on a bench. Hold the weights next to the chest, at the height of your nipples and press them up till the arms are stretched. Let the weight slowly and controlled down.</p>
-            </div>
-          </div>
-          <div id="exercise-card" data-exerciseid="206" class="w-full p-1">
-            <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Incline Dumbbell Flye</h2>
-            <div class="content">
-              <p>Use inclined bench. Hold dumbbells straight out to your sides, elbows slightly bent. Bring arms together above you, keeping angle of elbows fixed.</p>
-            </div>
-          </div>
-          <div id="exercise-card" data-exerciseid="122" class="w-full p-1">
-              <h2 id="exercise-name" class="collapsible bg-primary rounded-[26px] font-semibold">Fly With Cable</h2>
-              <div class="content"></div>
-          </div> -->
+        <section
+          id="generate-workout-wrapper"
+          class="scroll flex flex-wrap justify-center"
+        >
+          <h2 id="day-title" class="hidden pb-3 text-lg font-semibold">
+            <span id="workout-day" class="text-tertiary"></span> Day Workout
+          </h2>
         </section>
-
       </section>
       <!-- Workout Page Main Section -->
+
+      <!-- modal for generate workout section -->
+      <div id="generate-modal" class="hidden modal flex items-center">
+        <!-- modal info -->
+        <div class="modal-info w-10/12 m-auto p-4 bg-tertiary rounded-[26px]">
+          <form id="user-form" class="flex justify-center items-center">
+            <input name="workout-name" id="workout-name" type="text" autofocus="true" placeholder="Name this workout!" class="form-input w-5/6 rounded-[26px] text-center text-primary font-semibold"/>
+
+            <button id="save-name" type="submit" class="mx-2 px-[10px] py-[6px] btn bg-primary rounded-full font-semibold"><i class="fa-solid fa-heart text-lg text-rose-300"></i></button>
+
+            <button id="close-modal" type="submit" class="px-[12px] py-[6px] btn bg-primary rounded-full font-semibold"><i class="fa-solid fa-xmark text-xl text-red-600"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <!-- modal for no day selected for generate workout section -->
+      <div id="day-modal" class="hidden modal flex items-center justify-center">
+        <!-- modal info -->
+        <div class="modal-info w-10/12 m-auto p-4 text-center bg-tertiary rounded-[26px]">
+          <h2 class="text-primary font-semibold">Please Select a Training Day!</h2>
+        </div>
+      </div>
 
       <!-- Additional Buttons Section -->
       <!-- generate workout section -->
       <section id="generate-btns" class="hidden text-center">
-        <button type="button" name="returnbtn" id="returnbtn-random" class="btn-hover3 mb-2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold">Back</button>
-                  
-        <button type="button" name="favoriteBtn" id="favoriteBtn-random" class="btn-hover3 mt-3 mx-3 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold">Save <i class="fa-solid fa-heart text-rose-300"></i></button>
-          
-        <button type="button" name="tryItBtn" id="tryItBtn-random" class="btn-hover3 mt-2 p-3 px-6 self-center btn bg-secondary rounded-[26px] font-semibold">Try It!</button>
+        <button
+          type="button"
+          name="returnbtn"
+          id="returnbtn-random"
+          class="btn-hover3 mb-2 p-3 px-8 self-center btn bg-secondary rounded-[26px] font-semibold "
+        >
+          Back
+        </button>
+
+        <button
+          type="button"
+          name="favoriteBtn"
+          id="saveBtn-random"
+          class="btn-hover3 mt-3 mx-3 p-3 px-5 self-center btn bg-secondary rounded-[26px] font-semibold "
+        >
+          Save <i class="fa-solid fa-heart text-rose-300"></i>
+        </button>
+
       </section>
 
       <!-- individual muscles section -->
@@ -225,7 +170,6 @@
         </button>
       </section>
       <!-- Generate Workout Section -->
-  
 
       <!-- Navigation Section -->
       <nav class="navbar nav-lg">
