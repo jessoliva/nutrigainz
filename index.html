@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- tailwind cdn link -->
-    <!-- <script src="https://cdn.tailwindcss.com?plugins=typography,line-clamp,aspect-ratio,forms"></script> -->
     <!-- tailwind cdn jit link -->
     <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <!-- tailwind js link -->
@@ -15,24 +13,10 @@
     <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
     <!-- google fonts link -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
-    <!-- tailwind css link DOES NOT WORK --> 
-    <!-- <link href="./assets/css/tailwind.tailwindcss" type="text/tailwindcss" /> -->
     <!-- css link -->
     <link rel="stylesheet" href="./assets/css/styles.css"/>
     <!-- logo link-->
     <link rel="icon" href="./assets/images/favicon.ico" type="x-icon">
-
-    <style type="text/tailwindcss">
-
-      .home-icon {
-        @apply w-9/12 pb-4 border-b-4 border-[#142429] text-center;
-      }
-      
-
-  
-      
-
-    </style>
 
     <title>nutrigainz</title>
   </head>
@@ -56,7 +40,7 @@
       <!-- NOTE Could use more text to look better on bigger displays -->
       <div class="flex flex-col items-center gap-9 m-4">
         <!-- Home Page Image -->
-        <div class="home-icon">
+        <div class="w-9/12 pb-4 border-b-4 border-[#142429] text-center">
           <a href="index.html"><i class="fa-solid fa-house-chimney fa-3x text-tertiary"></i></a>  
         </div>
         
@@ -102,8 +86,11 @@
     </main>
 
     <!-- jQuery link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <!-- js link -->
     <script src="./assets/js/index.js"></script>
   </body>
