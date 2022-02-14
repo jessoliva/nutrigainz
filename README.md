@@ -13,7 +13,7 @@
 This website is designed to provide the user a way to create randomized workouts and also generate random recipes based on a user search. Users are able to favorite randomized workouts and recipes to save them in local storage. The user is also able to view the entire library of workouts. The recipe data is provided by Edamam API and the workout and muscle data provided by WGER API. 
 
 ## Nutrigainz
-[Click Here](https://jessoliva.github.io/project-1/) to go to the website.
+[Click Here](https://jessoliva.github.io/nutrigainz/) to go to the website.
 
 <p>
   <img src="./readme-images/nutrigainz-screenshot.jpg" alt="Nutrigainz webpage screenshot"/>
@@ -48,4 +48,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
