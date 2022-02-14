@@ -1,0 +1,148 @@
+/* UNIVERSAL STYLES START */
+:root {
+  --primary: #142429;
+  --secondary: #294851;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.scroll {
+  overflow: auto;
+}
+
+/* prevent children from taking on click event */
+.no-pointer {
+  pointer-events: none;
+}
+/* UNIVERSAL STYLES END */
+
+/* NAVIGATION AND MAIN BUTTONS STYLES START */
+.btn-hover:hover {
+  font-weight: bold;
+  color: var(--primary);
+  background-color: #bef264;
+  transition: all 0.6s ease-in-out;
+  opacity: 0.75;
+}
+
+.btn-hover:not(:hover) {
+  font-weight: bold;
+  color: white;
+  background-color: var(--secondary);
+  transition: all 0.6s ease-in-out;
+}
+
+.btn-hover2:hover {
+  font-weight: bold;
+  color: var(--primary);
+  background-color: #bef264;
+  transition: all 0.6s ease-in-out;
+  opacity: 0.75;
+}
+
+.btn-hover2:not(:hover) {
+  font-weight: bold;
+  color: white;
+  background-color: var(--primary);
+  transition: all 0.8s ease-in-out;
+}
+
+.btn-hover3:hover {
+  font-weight: bold;
+  color: var(--primary);
+  background-color: #bef264;
+  transition: all 0.6s ease-in-out;
+  opacity: 0.75;
+}
+
+.btn-hover3:not(:hover) {
+  font-weight: bold;
+  color: white;
+  background-color: var(--secondary);
+  transition: all 0.8s ease-in-out;
+}
+/* NAVIGATION AND MAIN BUTTONS STYLES END */
+
+/* WORKOUT SECTION STYLES */
+/* drop down styles */
+select {
+  background-image: none;
+  padding: 10px 40px;
+  text-align: center;
+}
+
+/* images styles */
+.muscle-img {
+  filter: invert(21%) sepia(63%) saturate(346%) hue-rotate(147deg)
+    brightness(94%) contrast(87%);
+}
+
+/* generate workout */
+.fa-heart {
+  color: pink;
+}
+
+/* makes exercise collapsibles work */
+.collapsible {
+  background-color: #bef264;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+  font-weight: bold;
+  background-color: #bef264;
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+/* makes exercise collapsibles work */
+
+/* modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(14, 13, 27, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+/* WORKOUT SECTION STYLES END */
+
+/* SAVED STYLES START */
+
+/* SAVED STYLES END */
+
+/* RECIPE STYLES START */
+
+/* RECIPE STYLES END */

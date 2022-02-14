@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- tailwind cdn jit link -->
+    <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- tailwind js link -->
+    <script src="./tailwind.config.js"></script>
+    <!-- font awesome link --> 
+    <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
+    <!-- google fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
+    <!-- logo link-->
+    <link rel="icon" href="./assets/images/favicon.ico" type="x-icon">
+
+    <style type="text/tailwindcss">
+      .logo {
+        @apply flex items-center justify-center mt-6 mb-2;
+      }
+
+      .logo-lg {
+        @apply lg:justify-start lg:mt-10 lg:ml-8;
+      }
+
+      .navbar {
+        @apply flex justify-around bg-secondary text-center text-4xl;
+      }
+
+      .nav-lg {
+        @apply  lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6;
+      }
+      
+      .nav-btn {
+        @apply w-16 h-16 rounded-full;
+      }
+
+      .recipes-main {
+        @apply  mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center bg-secondary rounded-[20px]; 
+      }
+
+      .recipes-lg {
+        @apply lg:mx-32 2xl:mx-80
+      }
+      
+      .display-rec {
+        @apply p-3 bg-primary rounded-[20px] text-center text-lg font-semibold;
+      }
+
+      .search-sec {
+        @apply mx-12 mb-10 rounded-[26px] text-sm text-center;
+      }
+
+      .ingredient {
+        @apply mb-4 w-5/6 rounded-[26px] text-center text-[#142429] lg:w-7/12
+      }
+    </style>
+
+    <title>Nutrigainz</title>
+  </head>
+
+  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
+    <main class="min-h-screen flex flex-col">
+      <!-- Logo -->
+      <section class="logo logo-lg">
+        <img class="lg:h-28"
+          src="./assets/images/nutrigainz.svg"
+          alt="Nutrigainz logo"
+          height="70"
+        />
+      </section>
+
+      <!-- Recipes Page Main Section -->
+      <section
+        class="scroll recipes-main recipes-lg"
+      >
+        <!-- display recipes -->
+        <div>
+          <h2 class="subtitle display-rec">
+            Displaying Recipes For: 
+          </br><span id="ingredient-search-term"></span>
+          </h2>
+          <div id="recipes-container" class="list-group"></div>
+        </div>
+      </section>
+
+      <section class="search-sec">
+        <!-- search recipes -->
+        <div class="card">
+          <form id="user-form" class="card-body">
+            <input
+              name="ingredients"
+              id="ingredients"
+              type="text"
+              autofocus="true"
+              placeholder="Enter an Ingredient!"
+              class="form-input ingredient"
+            />
+            <button
+              type="submit"
+              class="btn-hover p-3 btn bg-secondary rounded-[26px] font-semibold"
+            >
+              Search Recipes
+            </button>
+          </form>
+        </div>
+      </section>
+      <!-- Recipes Page Main Section -->
+      
+      <!-- modal for no ingredient entered -->
+      <div id="recipe-modal" class="hidden modal flex items-center justify-center">
+        <!-- modal info -->
+        <div class="modal-info w-10/12 m-auto p-4 text-center bg-tertiary rounded-[26px]">
+          <h2 class="text-primary font-semibold">Enter ingredient(s) to search recipes!</h2>
+        </div>
+      </div>
+
+      <!-- Navigation Section -->
+      <nav class="navbar nav-lg">
+        <button class="btn-hover nav-btn">
+          <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
+        </button>
+
+        <button class="btn-hover nav-btn">
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
+        </button>
+
+        <button class="btn-hover nav-btn">
+          <a href="recipes.html"><i class="fas fa-carrot"></i></a>
+        </button>
+
+        <button class="btn-hover nav-btn">
+          <a href="saved.html"><i class="fas fa-list"></i></a>            
+        </button>
+      </nav>
+      <!-- Navigation Section -->
+    </main>
+
+    
+    <!-- jQuery link -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- js link -->
+    <script src="./assets/js/recipes.js"></script>
+  </body>
+</html>
