@@ -27,11 +27,6 @@ loadWorkout();
 // display saved workouts
 function displayWorkouts() {
 
-  if (userWorkouts.length === 0) {
-    workoutContainerEl.textContent = "No recipes found.";
-    return;
-  }
-
   // loop through userWorkouts array
   for (i = 0; i < userWorkouts.length; i++) {
 
@@ -119,11 +114,6 @@ var recipeContainerEl = document.querySelector("#recipes-container");
 
 // display saved recipes
 var displayRecipes = function(loadedRecipes) {
-  if (loadedRecipes.length === 0) {
-    recipeContainerEl.textContent = "No recipes found.";
-    return;
-  }
-
   console.log(loadedRecipes);
 
   recipeContainerEl.textContent = "";
