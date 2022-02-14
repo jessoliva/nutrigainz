@@ -9,14 +9,20 @@
     <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <!-- tailwind js link -->
     <script src="./tailwind.config.js"></script>
-    <!-- font awesome link --> 
-    <script src="https://kit.fontawesome.com/7733a9cf21.js" crossorigin="anonymous"></script>
+    <!-- font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/7733a9cf21.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- google fonts link -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&amp;family=Poppins:wght@100;200;300;400&amp;display=swap"
+      rel="stylesheet"
+    />
     <!-- css link -->
-    <link rel="stylesheet" href="./assets/css/styles.css"/>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <!-- logo link-->
-    <link rel="icon" href="./assets/images/favicon.ico" type="x-icon">
+    <link rel="icon" href="./assets/images/favicon.ico" type="x-icon" />
 
     <style type="text/tailwindcss">
       .home-icon {
@@ -29,7 +35,6 @@
 
       .main-sec {
         @apply mx-12 mt-4 mb-10 p-4 h-24 flex flex-wrap flex-grow justify-center items-center bg-secondary rounded-[20px];
-  
       }
 
       .main-lg {
@@ -37,13 +42,13 @@
       }
 
       .home-page {
-        @apply flex flex-col items-center gap-9 m-4
+        @apply flex flex-col items-center gap-9 m-4;
       }
-/* 
+      /* 
       .home-desc {
         @apply pt-3 text-justify text-center lg:mx-60 2xl:text-xl
       } */
-      
+
       .lgscrn-icon {
         @apply 2xl:text-5xl;
       }
@@ -53,70 +58,86 @@
       }
 
       .nav-lg {
-        @apply  lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6;
+        @apply lg:fixed lg:right-0 lg:mt-20 lg:rounded-l-xl lg:flex lg:w-4/6;
       }
-      
+
       .nav-btn {
         @apply w-16 h-16 rounded-full;
       }
-
-      
     </style>
 
     <title>Nutrigainz</title>
   </head>
 
-  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white ">
-
+  <body class="bg-gradient-to-r from-[#142429] to-[#1B3137] text-white">
     <main class="min-h-screen flex flex-col">
       <!-- Logo -->
       <section class="logo">
-        <img class="lg:h-28"
+        <img
+          class="lg:h-28"
           src="./assets/images/nutrigainz.svg"
           alt="Nutrigainz logo"
           height="70"
         />
       </section>
-      
+
       <!-- Main Section -->
-      <section class="scroll main-sec main-lg"> 
+      <section class="scroll main-sec main-lg">
+        <!-- Home Page Icons and text-->
+        <!-- NOTE Could use more text to look better on bigger displays -->
+        <div class="home-page">
+          <!-- Home Page Image -->
+          <div class="home-icon">
+            <a href="index.html"
+              ><i
+                class="fa-solid fa-house-chimney fa-3x text-tertiary 2xl:text-7xl"
+              ></i
+            ></a>
+          </div>
 
-      <!-- Home Page Icons and text-->
-      <!-- NOTE Could use more text to look better on bigger displays -->
-      <div class="home-page">
-        <!-- Home Page Image -->
-        <div class="home-icon">
-          <a href="index.html"><i class="fa-solid fa-house-chimney fa-3x text-tertiary 2xl:text-7xl"></i></a>  
-        </div>
+          <!-- Workouts Description -->
+          <div class="flex-colum items-center text-center">
+            <a href="workout.html"><i class="fas fa-dumbbell fa-2x"></i></a>
+            <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">
+              Go here to view different individual muscles by workout day, and
+              different exercises by individual muscle. To generate a random
+              workout, select a day from the drop down menu. Once the workout is
+              generated, click 'Try It' to display it here or 'Save
+              <i class="fa-solid fa-heart text-rose-300"></i>' to save it.
+            </h2>
+          </div>
 
-      <!-- Workouts Description -->
-        <div class="flex-colum items-center text-center">
-          <a href="workout.html"><i class="fas fa-dumbbell fa-2x"></i></a>
-          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to view different individual muscles by workout day, and different exercises by individual muscle. To generate a random workout, select a day from the drop down menu. Once the workout is generated, click 'Try It' to display it here or 'Save <i class="fa-solid fa-heart text-rose-300"></i>' to save it.</h2>
-        </div>
+          <!-- Recipes Description -->
+          <div class="flex-colum items-center text-center">
+            <a href="recipes.html"><i class="fas fa-carrot fa-2x"></i></a>
+            <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">
+              Go here to search recipes by ingredients! When you input an
+              ingredient or multiple, a list of random recipes will be
+              displayed. If you like a recipe, click the
+              <i class="fa-solid fa-heart text-rose-300"></i> to save it.
+            </h2>
+          </div>
 
-        <!-- Recipes Description -->
-        <div class="flex-colum items-center text-center">
-          <a href="recipes.html"><i class="fas fa-carrot fa-2x"></i></a>
-          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to search recipes by ingredients! When you input an ingredient or multiple, a list of random recipes will be displayed. If you like a recipe, click the <i class="fa-solid fa-heart text-rose-300"></i> to save it.</h2>
+          <!-- Saved Items Description -->
+          <div class="flex-colum items-center text-center">
+            <a href="saved.html"><i class="fas fa-list fa-2x"></i></a>
+            <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">
+              Go here to view your saved workouts and saved recipes! You will be
+              able to view your saved items for later use, or keep them saved at
+              your convenience.
+            </h2>
+          </div>
         </div>
-
-        <!-- Saved Items Description -->
-        <div class="flex-colum items-center text-center">
-          <a href="saved.html"><i class="fas fa-list fa-2x"></i></a>
-          <h2 class="pt-3 text-center lg:mx-60 2xl:text-xl">Go here to view your saved workouts and saved recipes! You will be able to view your saved items for later use, or keep them saved at your convenience.</h2>
-        </div>
-      </div>
-      </section>  
+      </section>
 
       <!-- Navigation Section -->
       <nav class="navbar nav-lg">
         <button class="nav-btn btn-hover">
-          <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>          
+          <a href="index.html"><i class="fa-solid fa-house-chimney"></i></a>
         </button>
 
         <button class="nav-btn btn-hover">
-          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>             
+          <a href="workout.html"><i class="fas fa-dumbbell"></i></a>
         </button>
 
         <button class="nav-btn btn-hover">
@@ -124,10 +145,10 @@
         </button>
 
         <button class="nav-btn btn-hover">
-          <a href="saved.html"><i class="fas fa-list"></i></a>            
+          <a href="saved.html"><i class="fas fa-list"></i></a>
         </button>
       </nav>
-    <!-- Navigation Section -->
+      <!-- Navigation Section -->
     </main>
 
     <!-- jQuery link -->
