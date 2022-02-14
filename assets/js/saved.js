@@ -25,6 +25,7 @@ loadWorkout();
 
 // display saved workouts
 function displayWorkouts() {
+
   // loop through userWorkouts array
   for (i = 0; i < userWorkouts.length; i++) {
     // container to hold each workout saved
@@ -113,7 +114,9 @@ let loadedRecipes = [];
 var recipeContainerEl = document.querySelector("#recipes-container");
 
 // display saved recipes
+
 var displayRecipes = function (loadedRecipes) {
+
   recipeContainerEl.textContent = "";
 
   for (var i = 0; i < loadedRecipes.length; i++) {
